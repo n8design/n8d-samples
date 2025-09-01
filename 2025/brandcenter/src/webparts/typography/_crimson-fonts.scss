@@ -1,0 +1,57 @@
+$crimson-font-base-cdn: "https://public-cdn.sharepointonline.com/n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/";
+$crimson-font-base-fallback: "https://n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/";
+
+@font-face {
+  font-family: 'Crimson Text';
+  src:
+    url(#{$crimson-font-base-cdn}CrimsonText-Regular.ttf) format('truetype'),
+    url(#{$crimson-font-base-fallback}CrimsonText-Regular.ttf) format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Crimson Text';
+  src:
+    url(#{$crimson-font-base-cdn}CrimsonText-Italic.ttf) format('truetype'),
+    url(#{$crimson-font-base-fallback}CrimsonText-Italic.ttf) format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Crimson Text';
+  src:
+    url(#{$crimson-font-base-cdn}CrimsonText-SemiBold.ttf) format('truetype'),
+    url(#{$crimson-font-base-fallback}CrimsonText-SemiBold.ttf) format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Crimson Text';
+  src:
+    url(#{$crimson-font-base-cdn}CrimsonText-SemiBoldItalic.ttf) format('truetype'),
+    url(#{$crimson-font-base-fallback}CrimsonText-SemiBoldItalic.ttf) format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Crimson Text';
+  src:
+    url(#{$crimson-font-base-cdn}CrimsonText-Bold.ttf) format('truetype'),
+    url(#{$crimson-font-base-fallback}CrimsonText-Bold.ttf) format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Crimson Text';
+  src:
+    url(#{$crimson-font-base-cdn}CrimsonText-BoldItalic.ttf) format('truetype'),
+    url(#{$crimson-font-base-fallback}CrimsonText-BoldItalic.ttf) format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}

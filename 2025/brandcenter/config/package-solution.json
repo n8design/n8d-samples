@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "brandcenter-client-side-solution",
+    "id": "28ec91c3-6745-4af6-b8ec-44bae7ef1aa1",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.21.1"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "brandcenter description"
+      },
+      "longDescription": {
+        "default": "brandcenter description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "brandcenter Feature",
+        "description": "The feature that activates elements of the brandcenter solution.",
+        "id": "aa27cfa0-7926-4388-a8c8-8eee67131c93",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/brandcenter.sppkg"
+  }
+}

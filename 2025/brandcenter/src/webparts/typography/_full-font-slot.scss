@@ -1,0 +1,53 @@
+.typography {
+    /* Caption 2 - Caption small */
+    --customFont100: var(--fontWeightCustomFont100, var(--fontWeightRegular)) var(--fontSizeBase100)/var(--lineHeightBase100) var(--fontFamilyCustomFont100), var(--fontFamilyBase);
+
+    /* Caption 2 Strong - Caption medium */
+    --customFont200: var(--fontWeightCustomFont200, var(--fontWeightSemibold)) var(--fontSizeBase100)/var(--lineHeightBase100) var(--fontFamilyCustomFont200), var(--fontFamilyBase);
+
+    /* Caption 1 - Caption large */
+    --customFont300: var(--fontWeightCustomFont300, var(--fontWeightRegular)) var(--fontSizeBase200)/var(--lineHeightBase200) var(--fontFamilyCustomFont300), var(--fontFamilyBase);
+
+    /* Caption 1 Strong - Label small */
+    --customFont400: var(--fontWeightCustomFont400, var(--fontWeightSemibold)) var(--fontSizeBase200)/var(--lineHeightBase200) var(--fontFamilyCustomFont400), var(--fontFamilyBase);
+
+    /* Caption 1 Stronger - Label medium */
+    --customFont500: var(--fontWeightCustomFont500, var(--fontWeightBold)) var(--fontSizeBase200)/var(--lineHeightBase200) var(--fontFamilyCustomFont500), var(--fontFamilyBase);
+
+    /* Body 1 - Label large */
+    --customFont600: var(--fontWeightCustomFont600, var(--fontWeightRegular)) var(--fontSizeBase300)/var(--lineHeightBase300) var(--fontFamilyCustomFont600), var(--fontFamilyBase);
+
+    /* Body 1 Strong - Paragraph small */
+    --customFont700: var(--fontWeightCustomFont700, var(--fontWeightSemibold)) var(--fontSizeBase300)/var(--lineHeightBase300) var(--fontFamilyCustomFont700), var(--fontFamilyBase);
+
+    /* Body 1 Stronger - Paragraph medium */
+    --customFont800: var(--fontWeightCustomFont800, var(--fontWeightBold)) var(--fontSizeBase300)/var(--lineHeightBase300) var(--fontFamilyCustomFont800), var(--fontFamilyBase);
+
+    /* Body 2 - Paragraph large */
+    --customFont900: var(--fontWeightCustomFont900, var(--fontWeightRegular)) var(--fontSizeBase400)/var(--lineHeightBase400) var(--fontFamilyCustomFont900), var(--fontFamilyBase);
+
+    /* Subtitle 2 - Heading extra small */
+    --customFont1000: var(--fontWeightCustomFont1000, var(--fontWeightSemibold)) var(--fontSizeBase400)/var(--lineHeightBase400) var(--fontFamilyCustomFont1000), var(--fontFamilyBase);
+
+    /* Subtitle 2 Stronger - Heading small */
+    --customFont1100: var(--fontWeightCustomFont1100, var(--fontWeightBold)) var(--fontSizeBase400)/var(--lineHeightBase400) var(--fontFamilyCustomFont1100), var(--fontFamilyBase);
+
+    /* Subtitle 1 - Heading medium */
+    --customFont1200: var(--fontWeightCustomFont1200, var(--fontWeightSemibold)) var(--fontSizeBase500)/var(--lineHeightBase500) var(--fontFamilyCustomFont1200), var(--fontFamilyBase);
+
+    /* Title 3 - Heading large */
+    --customFont1300: var(--fontWeightCustomFont1300, var(--fontWeightSemibold)) var(--fontSizeBase600)/var(--lineHeightBase600) var(--fontFamilyCustomFont1300), var(--fontFamilyBase);
+
+    /* Title 2 - Heading extra large */
+    --customFont1400: var(--fontWeightCustomFont1400, var(--fontWeightSemibold)) var(--fontSizeHero700)/var(--lineHeightHero700) var(--fontFamilyCustomFont1400), var(--fontFamilyBase);
+
+    /* Title 1 - Title small */
+    --customFont1500: var(--fontWeightCustomFont1500, var(--fontWeightSemibold)) var(--fontSizeHero800)/var(--lineHeightHero800) var(--fontFamilyCustomFont1500), var(--fontFamilyBase);
+
+    /* Large Title - Title medium */
+    --customFont1600: var(--fontWeightCustomFont1600, var(--fontWeightSemibold)) var(--fontSizeHero900)/var(--lineHeightHero900) var(--fontFamilyCustomFont1600), var(--fontFamilyBase);
+
+    /* Display - Title large */
+    --customFont1700: var(--fontWeightCustomFont1700, var(--fontWeightSemibold)) var(--fontSizeHero1000)/var(--lineHeightHero1000) var(--fontFamilyCustomFont1700), var(--fontFamilyBase);
+
+}

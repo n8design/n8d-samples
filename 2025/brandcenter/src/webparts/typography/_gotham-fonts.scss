@@ -1,0 +1,150 @@
+
+$gotham-font-base-cdn: "https://public-cdn.sharepointonline.com/n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/";
+$gotham-font-base-fallback: "https://n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/";
+
+@font-face {
+  font-family: 'Gotham';
+  src:
+    url(#{$gotham-font-base-cdn}Gotham-Black.otf) format("opentype"),
+    url(#{$gotham-font-base-fallback}Gotham-Black.otf) format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gotham';
+  src:
+    url(#{$gotham-font-base-cdn}Gotham-BlackItalic.otf) format("opentype"),
+    url(#{$gotham-font-base-fallback}Gotham-BlackItalic.otf) format("opentype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Gotham';
+  src:
+    url(#{$gotham-font-base-cdn}Gotham-Bold.otf) format("opentype"),
+    url(#{$gotham-font-base-fallback}Gotham-Bold.otf) format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gotham';
+  src:
+    url(#{$gotham-font-base-cdn}Gotham-BoldItalic.otf) format("opentype"),
+    url(#{$gotham-font-base-fallback}Gotham-BoldItalic.otf) format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gotham';
+  src:
+    url(#{$gotham-font-base-cdn}Gotham-Book.otf) format("opentype"),
+    url(#{$gotham-font-base-fallback}Gotham-Book.otf) format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gotham';
+  src:
+    url(#{$gotham-font-base-cdn}Gotham-BookItalic.otf) format("opentype"),
+    url(#{$gotham-font-base-fallback}Gotham-BookItalic.otf) format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gotham';
+  src:
+    url(#{$gotham-font-base-cdn}Gotham-Light.otf) format("opentype"),
+    url(#{$gotham-font-base-fallback}Gotham-Light.otf) format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gotham';
+  src:
+    url(#{$gotham-font-base-cdn}Gotham-LightItalic.otf) format("opentype"),
+    url(#{$gotham-font-base-fallback}Gotham-LightItalic.otf) format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gotham';
+  src:
+    url(#{$gotham-font-base-cdn}Gotham-Medium.otf) format("opentype"),
+    url(#{$gotham-font-base-fallback}Gotham-Medium.otf) format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gotham';
+  src:
+    url(#{$gotham-font-base-cdn}Gotham-MediumItalic.otf) format("opentype"),
+    url(#{$gotham-font-base-fallback}Gotham-MediumItalic.otf) format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gotham';
+  src:
+    url(#{$gotham-font-base-cdn}Gotham-Thin.otf) format("opentype"),
+    url(#{$gotham-font-base-fallback}Gotham-Thin.otf) format("opentype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gotham';
+  src:
+    url(#{$gotham-font-base-cdn}Gotham-ThinItalic.otf) format("opentype"),
+    url(#{$gotham-font-base-fallback}Gotham-ThinItalic.otf) format("opentype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gotham';
+  src:
+    url(#{$gotham-font-base-cdn}Gotham-Ultra.otf) format("opentype"),
+    url(#{$gotham-font-base-fallback}Gotham-Ultra.otf) format("opentype");
+  font-weight: 950;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gotham';
+  src:
+    url(#{$gotham-font-base-cdn}Gotham-UltraItalic.otf) format("opentype"),
+    url(#{$gotham-font-base-fallback}Gotham-UltraItalic.otf) format("opentype");
+  font-weight: 950;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gotham';
+  src:
+    url(#{$gotham-font-base-cdn}Gotham-XLight.otf) format("opentype"),
+    url(#{$gotham-font-base-fallback}Gotham-XLight.otf) format("opentype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gotham';
+  src:
+    url(#{$gotham-font-base-cdn}Gotham-XLightItalic.otf) format("opentype"),
+    url(#{$gotham-font-base-fallback}Gotham-XLightItalic.otf) format("opentype");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
