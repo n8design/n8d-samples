@@ -9,10 +9,19 @@
           "manifest": "./src/webparts/typography/TypographyWebPart.manifest.json"
         }
       ]
+    },
+    "brand-colors-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/brandColors/BrandColorsWebPart.js",
+          "manifest": "./src/webparts/brandColors/BrandColorsWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
-    "TypographyWebPartStrings": "lib/webparts/typography/loc/{locale}.js"
+    "TypographyWebPartStrings": "lib/webparts/typography/loc/{locale}.js",
+    "BrandColorsWebPartStrings": "lib/webparts/brandColors/loc/{locale}.js"
   }
 }

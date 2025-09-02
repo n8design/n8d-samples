@@ -1,0 +1,26 @@
+.colorRamp{
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1 / span 3;
+    gap: clamp(1rem, 2.7vw, 2rem);
+}
+
+.colorRampIndex{
+    width: fit-content;
+    font-weight: 900;
+    font-size: clamp(1.5rem, 2.7vw, 2rem);
+}
+
+.colorRamps{
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+}
+
+.colorSwatch{
+    height: clamp(3rem, 5vw, 5rem);
+    width: clamp(4rem, 5vw, 5rem);
+}
+
+.sectionTitle{
+    grid-column: 1 / span 3;
+}
