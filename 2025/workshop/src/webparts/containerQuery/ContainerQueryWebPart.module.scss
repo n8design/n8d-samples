@@ -1,0 +1,44 @@
+$color-blue: #318eb1;
+$color-red: #cc2741;
+$color-pink: #da3280;
+$color-green: #a7bb38;
+$color-yellow: #eeb405;
+
+.outerContainer{
+  container-type: inline-size;
+}
+
+.containerQuery {
+  display: grid;
+
+  // Full width section
+  @container (width >= 1205px) {
+    background-color: $color-blue;
+    grid-template-columns: repeat(12, 1fr);
+  }
+  // One column section
+  @container (width < 1205px){
+    background-color: $color-red;
+    grid-template-columns: repeat(12, 1fr);
+  }
+  // 2/3 section
+  @container (width < 793px){
+    background-color: $color-pink;
+    grid-template-columns: repeat(6, 1fr);
+  }
+  // two column section
+  @container (width < 587px) {
+    background-color: $color-green;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  // three column section
+  @container (width < 476px) {
+    background-color: $color-yellow;
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+}
+
+.test{
+  content: "hello world";
+}

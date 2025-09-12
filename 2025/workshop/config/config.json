@@ -1,0 +1,63 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "css-basics-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/cssBasics/CssBasicsWebPart.js",
+          "manifest": "./src/webparts/cssBasics/CssBasicsWebPart.manifest.json"
+        }
+      ]
+    },
+    "custom-cards-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/customCards/CustomCardsWebPart.js",
+          "manifest": "./src/webparts/customCards/CustomCardsWebPart.manifest.json"
+        }
+      ]
+    },
+    "slide-show-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/slideShow/SlideShowWebPart.js",
+          "manifest": "./src/webparts/slideShow/SlideShowWebPart.manifest.json"
+        }
+      ]
+    },
+    "multi-cards-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/multiCards/MultiCardsWebPart.js",
+          "manifest": "./src/webparts/multiCards/MultiCardsWebPart.manifest.json"
+        }
+      ]
+    },
+    "container-query-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/containerQuery/ContainerQueryWebPart.js",
+          "manifest": "./src/webparts/containerQuery/ContainerQueryWebPart.manifest.json"
+        }
+      ]
+    },
+    "responsive-typography-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/responsiveTypography/ResponsiveTypographyWebPart.js",
+          "manifest": "./src/webparts/responsiveTypography/ResponsiveTypographyWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "CssBasicsWebPartStrings": "lib/webparts/cssBasics/loc/{locale}.js",
+    "CustomCardsWebPartStrings": "lib/webparts/customCards/loc/{locale}.js",
+    "SlideShowWebPartStrings": "lib/webparts/slideShow/loc/{locale}.js",
+    "MultiCardsWebPartStrings": "lib/webparts/multiCards/loc/{locale}.js",
+    "ContainerQueryWebPartStrings": "lib/webparts/containerQuery/loc/{locale}.js",
+    "ResponsiveTypographyWebPartStrings": "lib/webparts/responsiveTypography/loc/{locale}.js"
+  }
+}

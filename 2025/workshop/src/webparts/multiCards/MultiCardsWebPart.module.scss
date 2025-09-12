@@ -1,0 +1,9 @@
+@use '../../common/css/base-grid-config' as baseGrid;
+
+.multiCards {
+  display: grid;
+  grid-template-rows: 1fr;
+  gap: clamp(1rem, 2.7vw, 2rem)
+}
+
+@include baseGrid.setupGrid(".multiCards");

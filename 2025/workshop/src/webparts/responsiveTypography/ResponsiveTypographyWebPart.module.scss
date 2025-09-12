@@ -1,0 +1,28 @@
+$gotham-font-base-cdn: "https://public-cdn.sharepointonline.com/n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/";
+$gotham-font-base-fallback: "https://n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/";
+
+@font-face {
+  font-family: 'Gotham';
+  src: url(#{$gotham-font-base-cdn}Gotham-Ultra.otf) format("opentype"),
+    url(#{$gotham-font-base-fallback}Gotham-Ultra.otf) format("opentype");
+  font-weight: 950;
+  font-style: normal;
+  font-display: swap;
+}
+
+.responsiveTypography {
+
+  background-clip: text;
+  background-image: url("https://n8dlab001.sharepoint.com/sites/Demo/SiteAssets/forest.jpg");
+
+  color: white;
+  color: transparent;
+  font-family: "Gotham", var(--font-family-base);
+
+  font-size: 10rem;
+  font-size: clamp(2rem, 10vw, 10rem);
+  font-weight: 950;
+  text-align: center;
+  white-space: nowrap;
+  // padding-block: clamp(1rem, 5vw, 5rem);
+}

@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1400" height="1000" viewBox="0 0 1400 1000" xmlns="http://www.w3.org/2005/Atom">
+  <defs>
+    <style>
+      .title { font-family: 'Segoe UI', sans-serif; font-size: 24px; font-weight: 600; fill: #323130; }
+      .subtitle { font-family: 'Segoe UI', sans-serif; font-size: 18px; font-weight: 500; fill: #605e5c; }
+      .property { font-family: 'Segoe UI', sans-serif; font-size: 13px; font-weight: 500; fill: #323130; }
+      .value { font-family: 'Consolas', monospace; font-size: 11px; fill: #8764b8; }
+      .section-bg { fill: #f8f9fa; stroke: #e1dfdd; stroke-width: 1; }
+      .header-bg { fill: #0078d4; }
+      .header-text { font-family: 'Segoe UI', sans-serif; font-size: 20px; font-weight: 600; fill: white; }
+      .color-swatch { stroke: #323130; stroke-width: 1; }
+      .interface-name { font-family: 'Consolas', monospace; font-size: 16px; font-weight: 600; fill: #0078d4; }
+      .hierarchy { font-family: 'Consolas', monospace; font-size: 12px; fill: #323130; }
+      .hierarchy-indent1 { font-family: 'Consolas', monospace; font-size: 12px; fill: #605e5c; }
+      .hierarchy-indent2 { font-family: 'Consolas', monospace; font-size: 11px; fill: #8a8886; }
+      .hierarchy-value { font-family: 'Consolas', monospace; font-size: 11px; fill: #0078d4; }
+      .tree-line { stroke: #d2d0ce; stroke-width: 1; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#ffffff"/>
+  
+  <!-- Header -->
+  <rect class="header-bg" width="1200" height="60"/>
+  <text class="header-text" x="20" y="38">this._themeVariant: IReadonlyTheme Structure</text>
+  
+  <!-- Interface Definition -->
+  <text class="interface-name" x="20" y="90">IReadonlyTheme Interface</text>
+  
+  <!-- Palette Section -->
+  <rect class="section-bg" x="20" y="110" width="560" height="320" rx="8"/>
+  <text class="subtitle" x="35" y="135">palette: IPalette</text>
+  
+  <!-- Primary Colors -->
+  <text class="property" x="50" y="160">themePrimary</text>
+  <rect class="color-swatch" x="150" y="148" width="20" height="15" fill="#0078d4"/>
+  <text class="value" x="180" y="160">#0078d4</text>
+  
+  <text class="property" x="50" y="180">themeLighterAlt</text>
+  <rect class="color-swatch" x="150" y="168" width="20" height="15" fill="#eff6fc"/>
+  <text class="value" x="180" y="180">#eff6fc</text>
+  
+  <text class="property" x="50" y="200">themeLighter</text>
+  <rect class="color-swatch" x="150" y="188" width="20" height="15" fill="#deecf9"/>
+  <text class="value" x="180" y="200">#deecf9</text>
+  
+  <text class="property" x="50" y="220">themeLight</text>
+  <rect class="color-swatch" x="150" y="208" width="20" height="15" fill="#c7e0f4"/>
+  <text class="value" x="180" y="220">#c7e0f4</text>
+  
+  <text class="property" x="50" y="240">themeTertiary</text>
+  <rect class="color-swatch" x="150" y="228" width="20" height="15" fill="#71afe5"/>
+  <text class="value" x="180" y="240">#71afe5</text>
+  
+  <text class="property" x="50" y="260">themeSecondary</text>
+  <rect class="color-swatch" x="150" y="248" width="20" height="15" fill="#2b88d8"/>
+  <text class="value" x="180" y="260">#2b88d8</text>
+  
+  <text class="property" x="50" y="280">themeDarkAlt</text>
+  <rect class="color-swatch" x="150" y="268" width="20" height="15" fill="#106ebe"/>
+  <text class="value" x="180" y="280">#106ebe</text>
+  
+  <text class="property" x="50" y="300">themeDark</text>
+  <rect class="color-swatch" x="150" y="288" width="20" height="15" fill="#005a9e"/>
+  <text class="value" x="180" y="300">#005a9e</text>
+  
+  <text class="property" x="50" y="320">themeDarker</text>
+  <rect class="color-swatch" x="150" y="308" width="20" height="15" fill="#004578"/>
+  <text class="value" x="180" y="320">#004578</text>
+  
+  <!-- Neutral Colors Column 1 -->
+  <text class="property" x="300" y="160">neutralLighterAlt</text>
+  <rect class="color-swatch" x="400" y="148" width="20" height="15" fill="#faf9f8"/>
+  <text class="value" x="430" y="160">#faf9f8</text>
+  
+  <text class="property" x="300" y="180">neutralLighter</text>
+  <rect class="color-swatch" x="400" y="168" width="20" height="15" fill="#f3f2f1"/>
+  <text class="value" x="430" y="180">#f3f2f1</text>
+  
+  <text class="property" x="300" y="200">neutralLight</text>
+  <rect class="color-swatch" x="400" y="188" width="20" height="15" fill="#edebe9"/>
+  <text class="value" x="430" y="200">#edebe9</text>
+  
+  <text class="property" x="300" y="220">neutralQuaternaryAlt</text>
+  <rect class="color-swatch" x="400" y="208" width="20" height="15" fill="#e1dfdd"/>
+  <text class="value" x="430" y="220">#e1dfdd</text>
+  
+  <text class="property" x="300" y="240">neutralQuaternary</text>
+  <rect class="color-swatch" x="400" y="228" width="20" height="15" fill="#d2d0ce"/>
+  <text class="value" x="430" y="240">#d2d0ce</text>
+  
+  <text class="property" x="300" y="260">neutralTertiaryAlt</text>
+  <rect class="color-swatch" x="400" y="248" width="20" height="15" fill="#c8c6c4"/>
+  <text class="value" x="430" y="260">#c8c6c4</text>
+  
+  <text class="property" x="300" y="280">neutralTertiary</text>
+  <rect class="color-swatch" x="400" y="268" width="20" height="15" fill="#a19f9d"/>
+  <text class="value" x="430" y="280">#a19f9d</text>
+  
+  <text class="property" x="300" y="300">neutralSecondary</text>
+  <rect class="color-swatch" x="400" y="288" width="20" height="15" fill="#605e5c"/>
+  <text class="value" x="430" y="300">#605e5c</text>
+  
+  <text class="property" x="300" y="320">neutralPrimaryAlt</text>
+  <rect class="color-swatch" x="400" y="308" width="20" height="15" fill="#3b3a39"/>
+  <text class="value" x="430" y="320">#3b3a39</text>
+  
+  <text class="property" x="300" y="340">neutralPrimary</text>
+  <rect class="color-swatch" x="400" y="328" width="20" height="15" fill="#323130"/>
+  <text class="value" x="430" y="340">#323130</text>
+  
+  <text class="property" x="300" y="360">neutralDark</text>
+  <rect class="color-swatch" x="400" y="348" width="20" height="15" fill="#201f1e"/>
+  <text class="value" x="430" y="360">#201f1e</text>
+  
+  <text class="property" x="300" y="380">black</text>
+  <rect class="color-swatch" x="400" y="368" width="20" height="15" fill="#000000"/>
+  <text class="value" x="430" y="380">#000000</text>
+  
+  <text class="property" x="300" y="400">white</text>
+  <rect class="color-swatch" x="400" y="388" width="20" height="15" fill="#ffffff"/>
+  <text class="value" x="430" y="400">#ffffff</text>
+  
+  <!-- Semantic Colors Section -->
+  <rect class="section-bg" x="620" y="110" width="560" height="320" rx="8"/>
+  <text class="subtitle" x="635" y="135">semanticColors: ISemanticColors</text>
+  
+  <!-- Body Colors -->
+  <text class="property" x="650" y="160">bodyBackground</text>
+  <rect class="color-swatch" x="750" y="148" width="20" height="15" fill="#ffffff"/>
+  <text class="value" x="780" y="160">#ffffff</text>
+  
+  <text class="property" x="650" y="180">bodyText</text>
+  <rect class="color-swatch" x="750" y="168" width="20" height="15" fill="#323130"/>
+  <text class="value" x="780" y="180">#323130</text>
+  
+  <text class="property" x="650" y="200">bodySubtext</text>
+  <rect class="color-swatch" x="750" y="188" width="20" height="15" fill="#605e5c"/>
+  <text class="value" x="780" y="200">#605e5c</text>
+  
+  <!-- Link Colors -->
+  <text class="property" x="650" y="230">link</text>
+  <rect class="color-swatch" x="750" y="218" width="20" height="15" fill="#0078d4"/>
+  <text class="value" x="780" y="230">#0078d4</text>
+  
+  <text class="property" x="650" y="250">linkHovered</text>
+  <rect class="color-swatch" x="750" y="238" width="20" height="15" fill="#106ebe"/>
+  <text class="value" x="780" y="250">#106ebe</text>
+  
+  <!-- Button Colors -->
+  <text class="property" x="650" y="280">primaryButtonBackground</text>
+  <rect class="color-swatch" x="750" y="268" width="20" height="15" fill="#0078d4"/>
+  <text class="value" x="780" y="280">#0078d4</text>
+  
+  <text class="property" x="650" y="300">primaryButtonText</text>
+  <rect class="color-swatch" x="750" y="288" width="20" height="15" fill="#ffffff"/>
+  <text class="value" x="780" y="300">#ffffff</text>
+  
+  <!-- Input Colors -->
+  <text class="property" x="650" y="330">inputBackground</text>
+  <rect class="color-swatch" x="750" y="318" width="20" height="15" fill="#ffffff"/>
+  <text class="value" x="780" y="330">#ffffff</text>
+  
+  <text class="property" x="650" y="350">inputBorder</text>
+  <rect class="color-swatch" x="750" y="338" width="20" height="15" fill="#8a8886"/>
+  <text class="value" x="780" y="350">#8a8886</text>
+  
+  <text class="property" x="650" y="370">inputText</text>
+  <rect class="color-swatch" x="750" y="358" width="20" height="15" fill="#323130"/>
+  <text class="value" x="780" y="370">#323130</text>
+  
+  <!-- Error/Warning Colors -->
+  <text class="property" x="900" y="160">errorBackground</text>
+  <rect class="color-swatch" x="1000" y="148" width="20" height="15" fill="#fde7e9"/>
+  <text class="value" x="1030" y="160">#fde7e9</text>
+  
+  <text class="property" x="900" y="180">errorText</text>
+  <rect class="color-swatch" x="1000" y="168" width="20" height="15" fill="#a4262c"/>
+  <text class="value" x="1030" y="180">#a4262c</text>
+  
+  <text class="property" x="900" y="200">warningBackground</text>
+  <rect class="color-swatch" x="1000" y="188" width="20" height="15" fill="#fff4ce"/>
+  <text class="value" x="1030" y="200">#fff4ce</text>
+  
+  <text class="property" x="900" y="220">warningText</text>
+  <rect class="color-swatch" x="1000" y="208" width="20" height="15" fill="#797673"/>
+  <text class="value" x="1030" y="220">#797673</text>
+  
+  <!-- Success Colors -->
+  <text class="property" x="900" y="250">successBackground</text>
+  <rect class="color-swatch" x="1000" y="238" width="20" height="15" fill="#dff6dd"/>
+  <text class="value" x="1030" y="250">#dff6dd</text>
+  
+  <text class="property" x="900" y="270">successText</text>
+  <rect class="color-swatch" x="1000" y="258" width="20" height="15" fill="#107c10"/>
+  <text class="value" x="1030" y="270">#107c10</text>
+  
+  <!-- Properties Information -->
+  <rect class="section-bg" x="20" y="460" width="1160" height="300" rx="8"/>
+  <text class="subtitle" x="35" y="485">Theme Properties and Usage</text>
+  
+  <!-- Usage Examples -->
+  <text class="property" x="50" y="510">✓ Accessible via:</text>
+  <text class="value" x="160" y="510">this._themeVariant.palette.themePrimary</text>
+  
+  <text class="property" x="50" y="530">✓ Used in:</text>
+  <text class="value" x="160" y="530">ThemeService.registerCSSVariables()</text>
+  
+  <text class="property" x="50" y="550">✓ Updated by:</text>
+  <text class="value" x="160" y="550">_handleThemeChangedEvent()</text>
+  
+  <text class="property" x="50" y="580">Key Features:</text>
+  <text class="value" x="50" y="600">• Readonly interface - cannot be modified directly</text>
+  <text class="value" x="50" y="620">• Updated automatically when SharePoint theme changes</text>
+  <text class="value" x="50" y="640">• Provides complete color palette for consistent UI</text>
+  <text class="value" x="50" y="660">• Includes both palette colors and semantic colors</text>
+  <text class="value" x="50" y="680">• Used by ThemeService to register CSS custom properties</text>
+  
+  <text class="property" x="600" y="510">Current Implementation:</text>
+  <text class="value" x="600" y="530">• Consumed in BrandColorsWebPart.onInit()</text>
+  <text class="value" x="600" y="550">• Passed to ColorRamp component for visualization</text>
+  <text class="value" x="600" y="570">• Registered as CSS variables scoped to web part</text>
+  <text class="value" x="600" y="590">• Provides theme-aware color management</text>
+  
+  <!-- Data Flow -->
+  <text class="property" x="600" y="630">Data Flow:</text>
+  <text class="value" x="600" y="650">ThemeProvider → _themeVariant → ThemeService → CSS Variables</text>
+  <text class="value" x="600" y="670">ThemeChangedEvent → Update _themeVariant → Re-render</text>
+  <text class="value" x="600" y="690">getPaletteColors(_themeVariant) → ColorRamp.render()</text>
+  
+  <!-- Footer -->
+  <text class="property" x="20" y="790">SPFx Theme Integration - BrandColorsWebPart.ts</text>
+</svg>

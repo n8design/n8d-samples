@@ -1,0 +1,32 @@
+.cardHeader {
+    height: 2lh;
+    margin: 0;
+
+    font-weight: bold;
+    overflow: hidden
+}
+
+.cardDescription {
+
+    height: 2lh;
+    margin-top: 10px;
+
+    font-size: 14px;
+    line-height: 1.5;
+    overflow: hidden;
+}
+
+.cardMedia {
+
+    margin: 0;
+    padding: 0;
+
+    aspect-ratio: 16/9;
+    img {
+        display: block;
+        height: auto;
+        width: 100%;
+
+        border-collapse: collapse;
+    }
+}

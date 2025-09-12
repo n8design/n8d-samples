@@ -1,0 +1,382 @@
+// CSS @property definitions for SharePoint Theme Colors
+// These define the custom properties with proper types, inheritance, and fallback values
+
+// ========================================
+// NEUTRAL COLOR PROPERTIES
+// ========================================
+
+@property --white {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --neutralLighterAlt {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --neutralLighter {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --neutralLight {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --neutralQuaternaryAlt {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --neutralQuaternary {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --neutralTertiaryAlt {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --neutralTertiary {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --neutralSecondaryAlt {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --neutralSecondary {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --neutralPrimaryAlt {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --neutralPrimary {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --neutralDark {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --black {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+// ========================================
+// THEME COLOR PROPERTIES
+// ========================================
+
+@property --themeLighterAlt {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --themeLighter {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --themeLight {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --themeTertiary {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --themeSecondary {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --themePrimary {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --themeDarkAlt {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --themeDark {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --themeDarker {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+// ========================================
+// BLUE COLOR PROPERTIES
+// ========================================
+
+@property --blueLight {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --blue {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --blueMid {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --blueDark {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+// ========================================
+// GREEN COLOR PROPERTIES
+// ========================================
+
+@property --greenLight {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --green {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --greenDark {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+// ========================================
+// RED COLOR PROPERTIES
+// ========================================
+
+@property --red {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --redDark {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+// ========================================
+// ORANGE COLOR PROPERTIES
+// ========================================
+
+@property --orangeLighter {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --orangeLight {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --orange {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+// ========================================
+// YELLOW COLOR PROPERTIES
+// ========================================
+
+@property --yellowLight {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --yellow {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --yellowDark {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+// ========================================
+// TEAL COLOR PROPERTIES
+// ========================================
+
+@property --tealLight {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --teal {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --tealDark {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+// ========================================
+// PURPLE COLOR PROPERTIES
+// ========================================
+
+@property --purpleLight {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --purple {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --purpleDark {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+// ========================================
+// MAGENTA COLOR PROPERTIES
+// ========================================
+
+@property --magentaLight {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --magenta {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --magentaDark {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+// ========================================
+// BUTTON COLOR PROPERTIES
+// ========================================
+
+@property --primaryButtonText {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --primaryButtonTextHovered {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --primaryButtonTextPressed {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --primaryButtonBackgroundDisabled {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --primaryButtonTextDisabled {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --primaryButtonBackground {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --primaryButtonBackgroundHovered {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --primaryButtonBackgroundPressed {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: lime;
+}
+
+@property --primaryButtonBorder {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: transparent;
+}

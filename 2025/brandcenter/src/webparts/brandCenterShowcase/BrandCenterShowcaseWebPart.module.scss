@@ -1,0 +1,26 @@
+/* Import CSS property definitions for type safety*/
+@import '../brandColors/css-properties';
+
+.brandCenterShowcase {
+  .gradient {
+    height: 3rem;
+
+    background: linear-gradient(to right, var(--themeLighterAlt), var(--themeDarker));
+    content: "Brand Center Gradient";
+  }
+
+  .semiTransparent {
+
+
+    display: flex;
+    height: 3rem;
+    
+    
+    background-color: #{"rgb(from var(--bodyBackground) r g b / 60%)"}; /* So far beind*/
+
+    content: "Semi-transparent Background";
+    align-items: center;
+    backdrop-filter: saturate(120%) blur(5px);
+    justify-content: center;
+  }
+}

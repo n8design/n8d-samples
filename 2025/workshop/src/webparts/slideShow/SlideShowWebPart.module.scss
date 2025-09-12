@@ -1,0 +1,17 @@
+@use 'sass:meta';
+
+.slideShow {
+  display: flex;
+
+  :global {
+    @include meta.load-css('../../../node_modules/@splidejs/splide/dist/css/splide.min.css');
+    @include meta.load-css('../../../node_modules/@splidejs/splide/dist/css/themes/splide-default.min.css');
+  }
+
+  .slide{
+    img{
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
