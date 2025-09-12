@@ -13,4 +13,11 @@ build.rig.getTasks = function () {
   return result;
 };
 
+build.sass.setConfig({
+  cleanCssOptions: { level: 0 },
+  autoprefixerOptions: {
+     overrideBrowserslist: ["> 1%", "last 2 versions", "not dead"]
+  }
+})
+
 build.initialize(require('gulp'));

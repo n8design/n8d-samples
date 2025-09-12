@@ -1,7 +1,8 @@
+// Import CSS property definitions for type safety
+@import 'css-properties';
+
 .brandColors {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-auto-flow: row;
+  display: block;
   content: "";
   
   // Use CSS variables provided by the theme

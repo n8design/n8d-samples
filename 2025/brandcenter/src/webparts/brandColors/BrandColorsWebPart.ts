@@ -15,7 +15,6 @@ export interface IBrandColorsWebPartProps {
 
 export default class BrandColorsWebPart extends BaseClientSideWebPart<IBrandColorsWebPartProps> {
   private _themeService: IThemeService;
-  private _colorRamp: ColorRamp;
   private _themeProvider: ThemeProvider;
   private _themeVariant: IReadonlyTheme | undefined;
 
@@ -42,11 +41,9 @@ export default class BrandColorsWebPart extends BaseClientSideWebPart<IBrandColo
     // Clear the container
     this.domElement.innerHTML = '';
     
-    // Create and render the color ramp
-    if (!this._colorRamp) {
-      this._colorRamp = new ColorRamp();
-    }
-    this._colorRamp.render(this.domElement, paletteColors);
+    // Create and render the color ramp (now includes all hTWOo colors)
+    const colorRamp = new ColorRamp();
+    colorRamp.render(this.domElement, paletteColors);
   }
 
   protected onInit(): Promise<void> {

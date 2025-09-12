@@ -1,28 +1,18 @@
 @use "sass:meta";
 
 @include meta.load-css('gotham-fonts');
-@include meta.load-css('crimson-fonts');
+// @include meta.load-css('crimson-fonts');
 
-@font-face {
-  font-family: "Gotham";
-  src:
-    url("https://public-cdn.sharepointonline.com/<tenant-url-without-https>/sites/BrandGuide/Fonts/Gotham-Light.otf") format("opentype"),
-    url("https://<tenant-url-without-https>/sites/BrandGuide/Fonts/Gotham-Light.otf") format("opentype");
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-
-@include meta.load-css("./_full-font-slot.scss");
+@include meta.load-css("./_full-font-slot");
 
 .typography {
   content: "";
   :global {
 
     // Base Fonts Styles
-    // @include meta.load-css("./_base-font-slot.scss");
+    @include meta.load-css("./base-font-slot");
     // // All correct definition base on Microsoft
-    // @include meta.load-css("./_all-microsoft-definitions.scss");
+    @include meta.load-css("./all-microsoft-definitions");
 
 
   }

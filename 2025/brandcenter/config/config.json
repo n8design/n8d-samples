@@ -17,11 +17,20 @@
           "manifest": "./src/webparts/brandColors/BrandColorsWebPart.manifest.json"
         }
       ]
+    },
+    "brand-center-showcase-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/brandCenterShowcase/BrandCenterShowcaseWebPart.js",
+          "manifest": "./src/webparts/brandCenterShowcase/BrandCenterShowcaseWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
     "TypographyWebPartStrings": "lib/webparts/typography/loc/{locale}.js",
-    "BrandColorsWebPartStrings": "lib/webparts/brandColors/loc/{locale}.js"
+    "BrandColorsWebPartStrings": "lib/webparts/brandColors/loc/{locale}.js",
+    "BrandCenterShowcaseWebPartStrings": "lib/webparts/brandCenterShowcase/loc/{locale}.js"
   }
 }

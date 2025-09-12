@@ -17,7 +17,7 @@
 
   "preconfiguredEntries": [{
     "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
-    "group": { "default": "Advanced" },
+    "group": { "default": "N8D - Brand Center" },
     "title": { "default": "Typography" },
     "description": { "default": "Typography description" },
     "officeFabricIconFontName": "Page",
