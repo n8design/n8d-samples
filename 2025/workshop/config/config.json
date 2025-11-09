@@ -49,6 +49,22 @@
           "manifest": "./src/webparts/responsiveTypography/ResponsiveTypographyWebPart.manifest.json"
         }
       ]
+    },
+    "variable-fonts-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/variableFonts/VariableFontsWebPart.js",
+          "manifest": "./src/webparts/variableFonts/VariableFontsWebPart.manifest.json"
+        }
+      ]
+    },
+    "svg-magic-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/svgMagic/SvgMagicWebPart.js",
+          "manifest": "./src/webparts/svgMagic/SvgMagicWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
@@ -58,6 +74,8 @@
     "SlideShowWebPartStrings": "lib/webparts/slideShow/loc/{locale}.js",
     "MultiCardsWebPartStrings": "lib/webparts/multiCards/loc/{locale}.js",
     "ContainerQueryWebPartStrings": "lib/webparts/containerQuery/loc/{locale}.js",
-    "ResponsiveTypographyWebPartStrings": "lib/webparts/responsiveTypography/loc/{locale}.js"
+    "ResponsiveTypographyWebPartStrings": "lib/webparts/responsiveTypography/loc/{locale}.js",
+    "VariableFontsWebPartStrings": "lib/webparts/variableFonts/loc/{locale}.js",
+    "SvgMagicWebPartStrings": "lib/webparts/svgMagic/loc/{locale}.js"
   }
 }

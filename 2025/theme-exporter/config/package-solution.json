@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "theme-exporter-client-side-solution",
+    "id": "577b54f0-88bc-4bb0-bb7e-984b0f6905e8",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.22.0-beta.4"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "theme-exporter description"
+      },
+      "longDescription": {
+        "default": "theme-exporter description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "theme-exporter Feature",
+        "description": "The feature that activates elements of the theme-exporter solution.",
+        "id": "d5af581c-8e7c-4738-a763-224e889cd666",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/theme-exporter.sppkg"
+  }
+}

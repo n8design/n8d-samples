@@ -3,16 +3,17 @@
 @include meta.load-css('gotham-fonts');
 // @include meta.load-css('crimson-fonts');
 
-@include meta.load-css("./_full-font-slot");
+@include meta.load-css("./full-font-slot");
 
 .typography {
   content: "";
   :global {
 
     // Base Fonts Styles
-    @include meta.load-css("./base-font-slot");
-    // // All correct definition base on Microsoft
+    // @include meta.load-css("./base-font-slot");
+    // All correct definition base on Microsoft
     @include meta.load-css("./all-microsoft-definitions");
+    // @include meta.load-css("./full-font-slot");
 
 
   }

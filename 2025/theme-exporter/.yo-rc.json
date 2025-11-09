@@ -1,0 +1,19 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "useGulp": false,
+    "plusBeta": true,
+    "isCreatingSolution": true,
+    "nodeVersion": "22.14.0",
+    "sdksVersions": {},
+    "version": "1.22.0-beta.4",
+    "libraryName": "theme-exporter",
+    "libraryId": "577b54f0-88bc-4bb0-bb7e-984b0f6905e8",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "theme-exporter",
+    "solutionShortDescription": "theme-exporter description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

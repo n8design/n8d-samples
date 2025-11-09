@@ -6,6 +6,9 @@
     "node": ">=22.14.0 < 23.0.0"
   },
   "main": "lib/index.js",
+  "browserslist": [
+    "defaults"
+  ],
   "scripts": {
     "build": "gulp bundle",
     "clean": "gulp clean",
@@ -18,6 +21,7 @@
     "@microsoft/sp-lodash-subset": "1.21.1",
     "@microsoft/sp-office-ui-fabric-core": "1.21.1",
     "@microsoft/sp-property-pane": "1.21.1",
+    "@microsoft/sp-top-actions": "^1.21.1",
     "@microsoft/sp-webpart-base": "1.21.1",
     "@splidejs/splide": "^4.1.4",
     "tslib": "2.3.1"
