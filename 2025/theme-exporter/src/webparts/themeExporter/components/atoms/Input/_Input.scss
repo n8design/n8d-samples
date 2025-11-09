@@ -1,0 +1,25 @@
+@import '../../../styles/mixins';
+
+// Atomic Input - SCSS Partial for global scope integration with HTWOO
+.atomic-input-container {
+  margin-bottom: $spacing-md;
+
+  &.error {
+    // Add error styling to HTWOO input
+    :global(.hoo-text-input) {
+      border-color: $color-error;
+      box-shadow: 0 0 0 1px $color-error;
+    }
+  }
+
+  .error-message {
+    color: $color-error;
+    background: rgba($color-error, 0.1);
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $border-radius-sm;
+    margin-top: $spacing-xs;
+    margin-bottom: 0;
+    font-size: $font-size-xs;
+    border: 1px solid rgba($color-error, 0.3);
+  }
+}

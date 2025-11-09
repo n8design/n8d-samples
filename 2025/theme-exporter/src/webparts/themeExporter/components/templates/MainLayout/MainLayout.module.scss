@@ -1,0 +1,32 @@
+@import '../../../styles/mixins';
+
+.mainLayout {
+  padding: $spacing-lg;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: $font-family-primary;
+}
+
+.title {
+  @include heading-1;
+  text-align: center;
+  margin-bottom: $spacing-xl;
+}
+
+.controlSection {
+  margin-bottom: $spacing-xl;
+}
+
+.editorSection {
+  margin-bottom: $spacing-xl;
+}
+
+.messageSection {
+  margin-bottom: $spacing-lg;
+}
+
+.contentArea {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}

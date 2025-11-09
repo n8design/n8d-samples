@@ -1,0 +1,28 @@
+@import '../../../styles/mixins';
+
+.spinner {
+  @include spinner;
+
+  &.sm {
+    @include spinner(16px, $color-primary);
+  }
+
+  &.md {
+    @include spinner(24px, $color-primary);
+  }
+
+  &.lg {
+    @include spinner(32px, $color-primary);
+  }
+}
+
+.container {
+  @include flex-center;
+  padding: $spacing-md;
+}
+
+.label {
+  margin-left: $spacing-sm;
+  font-size: $font-size-sm;
+  color: $color-neutral-600;
+}

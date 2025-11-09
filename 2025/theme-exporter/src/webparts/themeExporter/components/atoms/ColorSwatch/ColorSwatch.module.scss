@@ -1,0 +1,86 @@
+@import '../../../styles/mixins';
+
+.swatchContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.colorSwatch {
+  display: inline-block;
+  border: $border-width-thin solid $color-neutral-300;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  transition: all $transition-fast;
+  position: relative;
+
+  &:hover {
+    transform: scale(1.1);
+    border-color: $color-neutral-600;
+    box-shadow: $shadow-md;
+  }
+
+  &:focus {
+    @include focus-outline;
+  }
+
+  &.sm {
+    width: 20px;
+    height: 20px;
+  }
+
+  &.md {
+    width: 32px;
+    height: 32px;
+  }
+
+  &.lg {
+    width: 48px;
+    height: 48px;
+  }
+
+  &.clickable {
+    cursor: pointer;
+  }
+
+  &.nonClickable {
+    cursor: default;
+
+    &:hover {
+      transform: none;
+      border-color: $color-neutral-300;
+      box-shadow: none;
+    }
+  }
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: $color-neutral-800;
+  color: $color-neutral-100;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-xs;
+  white-space: nowrap;
+  z-index: $z-index-tooltip;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity $transition-fast;
+  margin-bottom: $spacing-xs;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 4px solid transparent;
+    border-top-color: $color-neutral-800;
+  }
+
+  .colorSwatch:hover & {
+    opacity: 1;
+  }
+}

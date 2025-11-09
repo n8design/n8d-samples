@@ -4,7 +4,7 @@ import { IThemeData } from '../../../services/BrandCenterService';
 import HOOButton, { HOOButtonType } from '@n8d/htwoo-react/HOOButton';
 import ThemeEditor from './ThemeEditor';
 import { WebPartContext } from '@microsoft/sp-webpart-base';
-import styles from './ThemeExporter.module.scss';
+// Using global classes from ThemeExporter.module.scss
 
 // Extend the JSX namespace to include the name attribute for details
 declare module 'react' {
@@ -128,7 +128,7 @@ React.useEffect(() => {
   const measureHeight = (): void => {
     if (containerRef.current) {
       // Find the nearest parent with themeGrid class
-      const themeGridElement = containerRef.current.closest(`.${styles.themeGrid}`) as HTMLElement;
+      const themeGridElement = containerRef.current.closest('.theme-grid') as HTMLElement;
       
       if (themeGridElement) {
         const height = themeGridElement.clientHeight;
@@ -150,7 +150,7 @@ React.useEffect(() => {
   const resizeObserver = new ResizeObserver(measureHeight);
   if (containerRef.current) {
     // Find the themeGrid element to observe
-    const themeGridElement = containerRef.current.closest(`.${styles.themeGrid}`) as HTMLElement;
+    const themeGridElement = containerRef.current.closest('.theme-grid') as HTMLElement;
     if (themeGridElement) {
       resizeObserver.observe(themeGridElement);
     } else {
@@ -192,11 +192,11 @@ const themeDetection = (): 'light' | 'dark' => {
       <summary>{themeName}</summary>
       <div 
         ref={containerRef}
-        className={styles.themeContent}
+        className="theme-content"
         style={{ '--editor-height': `${containerHeight}px` } as React.CSSProperties}
       >
         {/* Theme Editor Toggle */}
-        <div style={{ padding: '8px 8px 0 8px', borderBottom: '1px solid #eee' }}>
+        <div className="theme-editor-toggle">
           <HOOButton
             type={HOOButtonType.Standard}
             label={showEditor ? "Hide Editor" : "Show Editor"}
@@ -206,7 +206,7 @@ const themeDetection = (): 'light' | 'dark' => {
 
         {/* Theme Editor */}
         {showEditor && (
-          <div style={{ padding: '8px', borderBottom: '1px solid #eee' }}>
+          <div className="theme-editor-content">
             <ThemeEditor 
               context={context}
               editingTheme={themeData}

@@ -4,7 +4,7 @@ import { IThemeEditorProps } from './IThemeEditorProps';
 import { BrandCenterService, IThemeDataInput, IThemeData } from '../../../services/BrandCenterService';
 import HOOButton, { HOOButtonType } from '@n8d/htwoo-react/HOOButton';
 import HOOText from '@n8d/htwoo-react/HOOText';
-import styles from './ThemeExporter.module.scss';
+// Using global classes from ThemeExporter.module.scss
 
 // Configure Monaco Editor for SharePoint Framework - disable workers to avoid issues
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -873,7 +873,7 @@ export default class ThemeEditor extends React.Component<IThemeEditorProps, IThe
     const { themeName, primaryColor, neutralColor, selectedHarmony, autoRecommendNeutral, isSaving, isPreviewing, isApplying, error, success } = this.state;
 
     return (
-      <div className={styles.themeCreator}>
+      <div className="theme-creator">
         <h3>Advanced Theme Editor</h3>
         
         {/* Theme Name Input */}
@@ -1079,13 +1079,13 @@ export default class ThemeEditor extends React.Component<IThemeEditorProps, IThe
 
         {/* Status Messages */}
         {error && (
-          <div className={styles.errorMessage}>
+          <div className="error-message">
             {error}
           </div>
         )}
 
         {success && (
-          <div className={styles.successMessage}>
+          <div className="success-message">
             {success}
           </div>
         )}

@@ -1,0 +1,54 @@
+@import '../../../styles/mixins';
+
+.colorPicker {
+  margin-bottom: $spacing-lg;
+}
+
+.label {
+  display: block;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-secondary;
+  margin-bottom: $spacing-sm;
+}
+
+.colorGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+  gap: $spacing-sm;
+  max-width: 320px;
+}
+
+.colorOption {
+  width: 40px;
+  height: 40px;
+  border: $border-width-medium solid transparent;
+  border-radius: $border-radius-md;
+  cursor: pointer;
+  transition: all $transition-fast;
+  position: relative;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: $shadow-md;
+  }
+
+  &:focus {
+    @include focus-outline;
+  }
+
+  &.selected {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 2px $color-primary-light;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+}

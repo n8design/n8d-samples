@@ -2,7 +2,7 @@ import * as React from 'react';
 import { WebPartContext } from '@microsoft/sp-webpart-base';
 import { BrandCenterService, IThemeDataInput } from '../../../services/BrandCenterService';
 import HOOButton, { HOOButtonType } from '@n8d/htwoo-react/HOOButton';
-import styles from './ThemeExporter.module.scss';
+// Using global classes from ThemeExporter.module.scss
 
 export interface IThemeCreatorProps {
   context: WebPartContext;
@@ -116,11 +116,11 @@ export default class ThemeCreator extends React.Component<IThemeCreatorProps, IT
     const { isCreating, isCreated, error, createdThemeId } = this.state;
 
     return (
-      <div className={styles.themeCreator}>
+      <div className="theme-creator">
         <h3>Theme Creator & Tester</h3>
         <p>Create a test theme with pink text to verify SharePoint theming integration.</p>
         
-        <div className={styles.buttonContainer}>
+        <div className="button-container">
           <HOOButton
             type={HOOButtonType.Primary}
             disabled={isCreating || isCreated}
@@ -132,13 +132,13 @@ export default class ThemeCreator extends React.Component<IThemeCreatorProps, IT
 
         {/* Status Messages */}
         {isCreating && (
-          <div className={styles.statusMessage}>
+          <div className="status-message">
             🔄 Creating &ldquo;Pink Text Only Theme&rdquo;...
           </div>
         )}
 
         {isCreated && createdThemeId && (
-          <div className={styles.successMessage}>
+          <div className="success-message">
             ✅ Theme created successfully!<br />
             🎨 Theme ID: {createdThemeId}<br />
             📝 Name: &ldquo;Pink Text Only Theme&rdquo;<br />
@@ -147,13 +147,13 @@ export default class ThemeCreator extends React.Component<IThemeCreatorProps, IT
         )}
 
         {error && (
-          <div className={styles.errorMessage}>
+          <div className="error-message">
             ❌ {error}
           </div>
         )}
 
         {/* Instructions */}
-        <div className={styles.instructions}>
+        <div className="instructions">
           <h4>How to Test:</h4>
           <ol>
             <li>Click &ldquo;Create Pink Text Theme&rdquo; above</li>

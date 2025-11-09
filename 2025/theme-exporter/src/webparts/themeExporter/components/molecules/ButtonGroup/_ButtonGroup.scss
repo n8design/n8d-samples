@@ -1,0 +1,38 @@
+@import '../../../styles/mixins';
+
+// ButtonGroup molecule - SCSS Partial
+.atomic-button-group {
+  display: flex;
+
+  &.horizontal {
+    flex-direction: row;
+
+    &.sm > * + * {
+      margin-left: $spacing-sm;
+    }
+
+    &.md > * + * {
+      margin-left: $spacing-md;
+    }
+
+    &.lg > * + * {
+      margin-left: $spacing-lg;
+    }
+  }
+
+  &.vertical {
+    flex-direction: column;
+
+    &.sm > * + * {
+      margin-top: $spacing-sm;
+    }
+
+    &.md > * + * {
+      margin-top: $spacing-md;
+    }
+
+    &.lg > * + * {
+      margin-top: $spacing-lg;
+    }
+  }
+}

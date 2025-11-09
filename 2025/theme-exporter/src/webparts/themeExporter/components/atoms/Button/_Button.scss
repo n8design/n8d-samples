@@ -1,0 +1,26 @@
+@import '../../../styles/mixins';
+
+// Atomic Button - SCSS Partial for global scope integration with HTWOO
+.atomic-button {
+  // Allow HTWOO button styles to cascade properly
+  
+  &.loading {
+    position: relative;
+
+    // Add loading overlay to HTWOO button
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      @include spinner(16px, $color-primary);
+      z-index: 1;
+    }
+
+    // Make button content invisible when loading
+    :global(.hoo-button) {
+      color: transparent !important;
+    }
+  }
+}

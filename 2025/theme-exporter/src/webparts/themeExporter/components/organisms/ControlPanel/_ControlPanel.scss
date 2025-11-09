@@ -1,0 +1,28 @@
+@import '../../../styles/mixins';
+
+// ControlPanel organism - SCSS Partial
+.atomic-control-panel {
+  padding: $spacing-lg;
+  background: $color-neutral-100;
+  border: 1px solid $color-neutral-300;
+  border-radius: $border-radius-md;
+  margin-bottom: $spacing-lg;
+
+  .title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: $color-neutral-800;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  .button-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+    
+    // Ensure HTWOO buttons display properly
+    :global(.hoo-button) {
+      // Let HTWOO handle its own styling
+    }
+  }
+}
