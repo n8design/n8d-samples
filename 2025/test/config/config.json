@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "asdasd-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/asdasd/AsdasdWebPart.js",
+          "manifest": "./src/webparts/asdasd/AsdasdWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "AsdasdWebPartStrings": "lib/webparts/asdasd/loc/{locale}.js"
+  }
+}

@@ -4,9 +4,11 @@ import { WebPartContext } from '@microsoft/sp-webpart-base';
 import { MainLayout } from '../../templates';
 import { ControlPanel, ThemeEditor, ThemeJsonEditor } from '../../organisms';
 import { Message } from '../../atoms';
+import { IWebPartInstance } from '../../IThemeExporterProps';
 
 export interface IThemeExporterPageProps {
   context: WebPartContext;
+  webPartInstance?: IWebPartInstance;
 }
 
 interface IThemeExporterPageState {
@@ -100,6 +102,7 @@ export class ThemeExporterPage extends React.Component<IThemeExporterPageProps, 
     const themeEditor = showThemeEditor && (
       <ThemeEditor 
         context={this.props.context}
+        webPartInstance={this.props.webPartInstance}
         onThemeCreated={(themeId: string) => {
           console.log('Theme created with ID:', themeId);
           this.toggleThemeEditor();
@@ -127,6 +130,7 @@ export class ThemeExporterPage extends React.Component<IThemeExporterPageProps, 
               themeData={theme} 
               themeName={theme.name} 
               context={this.props.context}
+              webPartInstance={this.props.webPartInstance}
               onThemeUpdated={() => this.getSiteThemes().catch(console.error)}
             />
           ))}
@@ -144,6 +148,7 @@ export class ThemeExporterPage extends React.Component<IThemeExporterPageProps, 
               themeData={theme} 
               themeName={theme.name} 
               context={this.props.context}
+              webPartInstance={this.props.webPartInstance}
               onThemeUpdated={() => this.getTenantThemes().catch(console.error)}
             />
           ))}

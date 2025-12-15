@@ -1,0 +1,274 @@
+@property --font-weight {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 300;
+}
+
+.variableFonts {
+  // CSS Custom Properties for variable font control
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.fontDisplay {
+  font-family: "Segoe UI Variable", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+  /* Variable font axes - use separate properties for better browser support */
+  font-weight: var(--font-weight, 300);
+  font-optical-sizing: auto;
+  /* Let browser handle automatically, or use manual if supported */
+
+  /* Italic support - will be toggled via JavaScript */
+  &.italic {
+    font-style: italic;
+  }
+
+  /* Manual optical sizing via variation settings if font supports it (5-36pt range) */
+  font-variation-settings: "wght" var(--font-weight, 300),
+  "opsz" var(--optical-size, 12);
+
+  /* OpenType features - comprehensive set */
+  font-feature-settings: "ccmp" 1,
+  /* Composite Character Composition */
+  "kern" var(--kerning, 1),
+  /* Kerning */
+  "liga" 1,
+  /* Standard Ligatures */
+  "clig" 1,
+  /* Contextual Ligatures */
+  "dlig" var(--discretionary-ligatures, 0),
+  /* Discretionary Ligatures */
+  "frac" var(--fractions, 0),
+  /* Fractions */
+  "tnum" var(--tabular-numbers, 0),
+  /* Tabular Numbers */
+  "onum" var(--old-style-numbers, 0),
+  /* Old Style Numbers */
+  "case" var(--case-sensitive, 0),
+  /* Case-Sensitive Forms */
+  "ss01" var(--stylistic-set-1, 0);
+  /* Stylistic Set 1 */
+
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.2;
+
+  /* Fallback for optical sizing if variation settings don't work */
+  @supports not (font-variation-settings: "opsz" 12) {
+    font-optical-sizing: auto;
+  }
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.sliderLabel {
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #323130;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.slider {
+  width: 100%;
+  max-width: 400px;
+  height: 6px;
+  border-radius: 3px;
+  background: #e1e1e1;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #0078d4;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      background: #106ebe;
+    }
+  }
+
+  &::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #0078d4;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      background: #106ebe;
+    }
+  }
+}
+
+.controlGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #323130;
+  margin: 0 0 12px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.checkboxLabel {
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #323130;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  border: 2px solid #0078d4;
+  background: #ffffff;
+  cursor: pointer;
+  position: relative;
+  appearance: none;
+
+  &:checked {
+    background: #0078d4;
+    border-color: #0078d4;
+
+    &::after {
+      content: '✓';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: bold;
+    }
+  }
+
+  &:hover {
+    border-color: #106ebe;
+  }
+
+  &:focus {
+    outline: 2px solid #0078d4;
+    outline-offset: 2px;
+  }
+}
+
+.checkboxText {
+  color: #323130;
+  font-size: 14px;
+}
+
+:global {
+
+  /* Variable font utility classes for predefined instances */
+  .font-light-small {
+
+    font-weight: 300;
+    font-optical-sizing: 5;
+  }
+
+  .font-light-text {
+    font-weight: 300;
+    font-optical-sizing: 12;
+  }
+
+  .font-light-display {
+    font-weight: 300;
+    font-optical-sizing: 36;
+  }
+
+  .font-semilight-small {
+    font-weight: 350;
+    font-optical-sizing: 5;
+  }
+
+  .font-semilight-text {
+    font-weight: 350;
+    font-optical-sizing: 12;
+  }
+
+  .font-semilight-display {
+    font-weight: 350;
+    font-optical-sizing: 36;
+  }
+
+  .font-regular-small {
+    font-weight: 400;
+    font-optical-sizing: 5;
+  }
+
+  .font-regular-text {
+    font-weight: 400;
+    font-optical-sizing: 12;
+  }
+
+  .font-regular-display {
+    font-weight: 400;
+    font-optical-sizing: 36;
+  }
+
+  .font-semibold-small {
+    font-weight: 600;
+    font-optical-sizing: 5;
+  }
+
+  .font-semibold-text {
+    font-weight: 600;
+    font-optical-sizing: 12;
+  }
+
+  .font-semibold-display {
+    font-weight: 600;
+    font-optical-sizing: 36;
+  }
+
+  .font-bold-small {
+    font-weight: 700;
+    font-optical-sizing: 5;
+  }
+
+  .font-bold-text {
+    font-weight: 700;
+    font-optical-sizing: 12;
+  }
+
+  .font-bold-display {
+    font-weight: 700;
+    font-optical-sizing: 36;
+  }
+}

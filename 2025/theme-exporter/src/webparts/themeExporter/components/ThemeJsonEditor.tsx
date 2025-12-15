@@ -4,6 +4,7 @@ import { IThemeData } from '../../../services/BrandCenterService';
 import HOOButton, { HOOButtonType } from '@n8d/htwoo-react/HOOButton';
 import ThemeEditor from './ThemeEditor';
 import { WebPartContext } from '@microsoft/sp-webpart-base';
+import { IWebPartInstance } from './IThemeExporterProps';
 // Using global classes from ThemeExporter.module.scss
 
 // Extend the JSX namespace to include the name attribute for details
@@ -18,6 +19,7 @@ export interface IThemeJsonEditorProps {
   themeName: string;
   context: WebPartContext;
   onThemeUpdated?: () => void;
+  webPartInstance?: IWebPartInstance;
 }
 
 // Helper functions for color conversion
@@ -60,7 +62,7 @@ function rgbaToHex({ red, green, blue }: { red: number; green: number; blue: num
 // Global flag to ensure color provider is only registered once
 let colorProviderRegistered = false;
 
-export const ThemeJsonEditor: React.FC<IThemeJsonEditorProps> = ({ themeData, themeName, context, onThemeUpdated }) => {
+export const ThemeJsonEditor: React.FC<IThemeJsonEditorProps> = ({ themeData, themeName, context, onThemeUpdated, webPartInstance }) => {
   const [showEditor, setShowEditor] = React.useState(false);
   const monaco = useMonaco();
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -210,6 +212,7 @@ const themeDetection = (): 'light' | 'dark' => {
             <ThemeEditor 
               context={context}
               editingTheme={themeData}
+              webPartInstance={webPartInstance}
               onThemeCreated={(themeId) => {
                 console.log('Theme updated with ID:', themeId);
                 setShowEditor(false);

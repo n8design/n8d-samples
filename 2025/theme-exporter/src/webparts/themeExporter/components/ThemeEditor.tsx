@@ -19,27 +19,41 @@ import HOOText from '@n8d/htwoo-react/HOOText';
 
 type ColorHarmony = 'complementary' | 'analogous' | 'triadic' | 'tetradic' | 'monochromatic' | 'split-complementary';
 
+interface ISecondaryColor {
+  themePrimary: string;
+  backgroundColor: string;
+  neutralPrimary: string;
+}
+
+interface ISecondaryColors {
+  light: ISecondaryColor[];
+  dark: ISecondaryColor[];
+}
+
 interface IThemeEditorState {
-  themeName: string;
-  themeJson: string;
   primaryColor: string;
   neutralColor: string;
-  selectedHarmony: ColorHarmony;
-  autoRecommendNeutral: boolean;
+  themeName: string;
+  themeJson: string;
+  isGenerating: boolean;
   isSaving: boolean;
+  isUpdating: boolean;
   isPreviewing: boolean;
   isApplying: boolean;
-  isUpdating: boolean;
+  harmony: string;
   isEditMode: boolean;
   editingThemeId?: number;
-  error: string | undefined;
-  success: string | undefined;
+  error?: string;
+  success?: string;
+  selectedHarmony: ColorHarmony;
+  autoRecommendNeutral: boolean;
 }
 
 export default class ThemeEditor extends React.Component<IThemeEditorProps, IThemeEditorState> {
   private brandCenterService: BrandCenterService;
   private editorContainer: React.RefObject<HTMLDivElement>;
   private monacoEditor: monaco.editor.IStandaloneCodeEditor | null = null;
+  private isUpdatingFromColorPicker = false; // Flag to prevent recursive updates
 
   constructor(props: IThemeEditorProps) {
     super(props);
@@ -51,10 +65,12 @@ export default class ThemeEditor extends React.Component<IThemeEditorProps, IThe
       neutralColor: '#323130',
       selectedHarmony: 'complementary', // Default to complementary
       autoRecommendNeutral: true, // Default to true for better UX
+      isGenerating: false,
       isSaving: false,
       isPreviewing: false,
       isApplying: false,
       isUpdating: false,
+      harmony: 'complementary',
       isEditMode: !!this.props.editingTheme,
       editingThemeId: this.props.editingTheme?.id,
       error: undefined,
@@ -98,12 +114,29 @@ export default class ThemeEditor extends React.Component<IThemeEditorProps, IThe
       secondaryColors: {
         light: [{
           themePrimary: "#ffffff",
-          backgroundColor: "#0078d4"
+          backgroundColor: "#0078d4",
+          neutralPrimary: "#323130"
         }],
         dark: []
       }
     };
     return JSON.stringify(defaultTheme, null, 2);
+  }
+
+  /**
+   * Generate secondary colors based on current theme colors
+   * @param primaryColor - Current primary color
+   * @param neutralColor - Current neutral color  
+   */
+  private generateSecondaryColors(primaryColor: string, neutralColor: string): ISecondaryColors {
+    return {
+      light: [{
+        themePrimary: "#ffffff",
+        backgroundColor: primaryColor,
+        neutralPrimary: neutralColor
+      }],
+      dark: []
+    };
   }
 
   public componentDidMount(): void {
@@ -166,7 +199,7 @@ export default class ThemeEditor extends React.Component<IThemeEditorProps, IThe
 
     // Listen for content changes
     this.monacoEditor.onDidChangeModelContent(() => {
-      if (this.monacoEditor) {
+      if (this.monacoEditor && !this.isUpdatingFromColorPicker) {
         const value = this.monacoEditor.getValue();
         this.setState({ themeJson: value });
         
@@ -291,17 +324,22 @@ export default class ThemeEditor extends React.Component<IThemeEditorProps, IThe
   private generateThemeColors(primaryColor: string): Record<string, string> {
     const hsl = this.hexToHsl(primaryColor);
     
-    return {
+    console.log('🎨 GENERATE THEME COLORS - Input primary:', primaryColor);
+    
+    const colors = {
       themeDarker: this.hslToHex(hsl.h, hsl.s, Math.max(hsl.l - 30, 5)),
       themeDark: this.hslToHex(hsl.h, hsl.s, Math.max(hsl.l - 20, 10)),
       themeDarkAlt: this.hslToHex(hsl.h, hsl.s, Math.max(hsl.l - 10, 15)),
-      themePrimary: primaryColor,
+      themePrimary: primaryColor, // Preserve exact input color
       themeSecondary: this.hslToHex(hsl.h, Math.max(hsl.s - 10, 10), Math.min(hsl.l + 5, 95)),
       themeTertiary: this.hslToHex(hsl.h, Math.max(hsl.s - 25, 5), Math.min(hsl.l + 15, 95)),
       themeLight: this.hslToHex(hsl.h, Math.max(hsl.s - 35, 5), Math.min(hsl.l + 35, 95)),
       themeLighter: this.hslToHex(hsl.h, Math.max(hsl.s - 45, 5), Math.min(hsl.l + 50, 95)),
       themeLighterAlt: this.hslToHex(hsl.h, Math.max(hsl.s - 50, 5), Math.min(hsl.l + 70, 98))
     };
+    
+    console.log('🎨 GENERATE THEME COLORS - Output themePrimary:', colors.themePrimary);
+    return colors;
   }
 
   /**
@@ -429,80 +467,29 @@ export default class ThemeEditor extends React.Component<IThemeEditorProps, IThe
    * Generate neutral color variations using color harmony principles
    */
   private generateNeutralColorsFromHarmony(primaryColor: string, harmony: ColorHarmony): Record<string, string> {
-    const baseHsl = this.hexToHsl(primaryColor);
+    // IMPORTANT: Use the actual selected neutral color as the base, not the primary color!
+    const neutralHsl = this.hexToHsl(this.state.neutralColor);
     
-    // Get base hues from harmony for different neutral variations
-    let baseHues: number[] = [];
+    // Note: harmony and primaryColor are passed but we prioritize the user's actual neutral color selection
+    // The harmony concept applies more to automatic suggestion, not overriding manual selection
+    console.log('🖌️ HARMONY NEUTRAL - Primary:', primaryColor, 'but using selected neutral:', this.state.neutralColor);
     
-    switch (harmony) {
-      case 'complementary': {
-        // Use primary and complement for warm/cool neutrals
-        baseHues = [baseHsl.h, (baseHsl.h + 180) % 360];
-        break;
-      }
-      case 'analogous': {
-        // Use the three analogous colors
-        baseHues = [
-          baseHsl.h,
-          (baseHsl.h + 30) % 360,
-          (baseHsl.h - 30 + 360) % 360
-        ];
-        break;
-      }
-      case 'triadic': {
-        // Use all three triadic colors
-        baseHues = [
-          baseHsl.h,
-          (baseHsl.h + 120) % 360,
-          (baseHsl.h + 240) % 360
-        ];
-        break;
-      }
-      case 'tetradic': {
-        // Use all four tetradic colors
-        baseHues = [
-          baseHsl.h,
-          (baseHsl.h + 90) % 360,
-          (baseHsl.h + 180) % 360,
-          (baseHsl.h + 270) % 360
-        ];
-        break;
-      }
-      case 'split-complementary': {
-        // Use primary and split complement colors
-        const complement = (baseHsl.h + 180) % 360;
-        baseHues = [
-          baseHsl.h,
-          (complement - 30 + 360) % 360,
-          (complement + 30) % 360
-        ];
-        break;
-      }
-      case 'monochromatic': {
-        // Use only the base hue
-        baseHues = [baseHsl.h];
-        break;
-      }
-    }
-    
-    // Generate neutral colors using the harmony hues
-    const getHueForLevel = (level: number): number => {
-      return baseHues[level % baseHues.length];
-    };
+    // Generate neutral colors based on the selected neutral color (not primary!)
+    console.log('🖌️ HARMONY NEUTRAL GENERATION - Using selected neutral:', this.state.neutralColor);
     
     return {
-      black: this.hslToHex(getHueForLevel(0), 10, 5), // Very dark with primary hue
-      neutralDark: this.hslToHex(getHueForLevel(0), 8, 12), // Dark text with primary hue
-      neutralPrimary: this.hslToHex(getHueForLevel(0), 6, 20), // Primary neutral text
-      neutralPrimaryAlt: this.hslToHex(getHueForLevel(1), 5, 30), // Alt primary with harmony hue
-      neutralSecondary: this.hslToHex(getHueForLevel(1), 4, 45), // Secondary with harmony hue
-      neutralTertiary: this.hslToHex(getHueForLevel(2), 3, 60), // Tertiary with different harmony hue
-      neutralTertiaryAlt: this.hslToHex(getHueForLevel(2), 2, 72), // Borders with harmony variation
-      neutralQuaternary: this.hslToHex(getHueForLevel(3), 2, 82), // Light borders
-      neutralQuaternaryAlt: this.hslToHex(getHueForLevel(0), 1, 87), // Subtle borders
-      neutralLight: this.hslToHex(getHueForLevel(1), 1, 92), // Light backgrounds
-      neutralLighter: this.hslToHex(getHueForLevel(2), 1, 96), // Lighter backgrounds
-      neutralLighterAlt: this.hslToHex(getHueForLevel(0), 1, 98), // Lightest backgrounds
+      black: this.hslToHex(neutralHsl.h, Math.min(neutralHsl.s + 5, 15), Math.max(neutralHsl.l - 15, 0)), // Very dark
+      neutralDark: this.hslToHex(neutralHsl.h, Math.min(neutralHsl.s + 3, 12), Math.max(neutralHsl.l - 8, 5)), // Dark text
+      neutralPrimary: this.state.neutralColor, // PRESERVE EXACT SELECTED NEUTRAL COLOR!
+      neutralPrimaryAlt: this.hslToHex(neutralHsl.h, Math.max(neutralHsl.s - 2, 2), Math.min(neutralHsl.l + 8, 40)), // Alt primary
+      neutralSecondary: this.hslToHex(neutralHsl.h, Math.max(neutralHsl.s - 5, 2), Math.min(neutralHsl.l + 20, 55)), // Secondary text
+      neutralTertiary: this.hslToHex(neutralHsl.h, Math.max(neutralHsl.s - 8, 2), Math.min(neutralHsl.l + 45, 75)), // Tertiary text
+      neutralTertiaryAlt: this.hslToHex(neutralHsl.h, Math.max(neutralHsl.s - 10, 2), Math.min(neutralHsl.l + 55, 82)), // Borders
+      neutralQuaternary: this.hslToHex(neutralHsl.h, Math.max(neutralHsl.s - 12, 1), Math.min(neutralHsl.l + 65, 87)), // Light borders
+      neutralQuaternaryAlt: this.hslToHex(neutralHsl.h, Math.max(neutralHsl.s - 12, 1), Math.min(neutralHsl.l + 70, 90)), // Subtle borders
+      neutralLight: this.hslToHex(neutralHsl.h, Math.max(neutralHsl.s - 15, 1), Math.min(neutralHsl.l + 75, 94)), // Light backgrounds
+      neutralLighter: this.hslToHex(neutralHsl.h, Math.max(neutralHsl.s - 18, 1), Math.min(neutralHsl.l + 82, 97)), // Lighter backgrounds
+      neutralLighterAlt: this.hslToHex(neutralHsl.h, Math.max(neutralHsl.s - 20, 1), Math.min(neutralHsl.l + 88, 99)), // Lightest backgrounds
       white: '#ffffff' // Always pure white
     };
   }
@@ -513,10 +500,12 @@ export default class ThemeEditor extends React.Component<IThemeEditorProps, IThe
   private generateNeutralColors(neutralColor: string): Record<string, string> {
     const hsl = this.hexToHsl(neutralColor);
     
-    return {
+    console.log('🖌️ GENERATE NEUTRAL COLORS - Input neutral:', neutralColor);
+    
+    const colors = {
       black: this.hslToHex(hsl.h, Math.min(hsl.s + 5, 15), Math.max(hsl.l - 15, 0)), // Very dark
       neutralDark: this.hslToHex(hsl.h, Math.min(hsl.s + 3, 12), Math.max(hsl.l - 8, 5)), // Dark text
-      neutralPrimary: neutralColor, // Primary neutral (text)
+      neutralPrimary: neutralColor, // Preserve exact input color
       neutralPrimaryAlt: this.hslToHex(hsl.h, Math.max(hsl.s - 2, 2), Math.min(hsl.l + 8, 40)), // Alt primary
       neutralSecondary: this.hslToHex(hsl.h, Math.max(hsl.s - 5, 2), Math.min(hsl.l + 20, 55)), // Secondary text
       neutralTertiary: this.hslToHex(hsl.h, Math.max(hsl.s - 8, 2), Math.min(hsl.l + 45, 75)), // Tertiary text
@@ -528,15 +517,21 @@ export default class ThemeEditor extends React.Component<IThemeEditorProps, IThe
       neutralLighterAlt: this.hslToHex(hsl.h, Math.max(hsl.s - 20, 1), Math.min(hsl.l + 88, 99)), // Lightest backgrounds
       white: '#ffffff' // Always pure white
     };
+    
+    console.log('🖌️ GENERATE NEUTRAL COLORS - Output neutralPrimary:', colors.neutralPrimary);
+    return colors;
   }
 
   private handlePrimaryColorChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const color = event.target.value;
     
+    console.log('🎨 PRIMARY COLOR CHANGE - Input:', color);
+    
     // Auto-recommend neutral color if enabled
     let newNeutralColor = this.state.neutralColor;
     if (this.state.autoRecommendNeutral) {
       newNeutralColor = this.generateNeutralFromHarmony(color, this.state.selectedHarmony);
+      console.log('🎨 PRIMARY COLOR CHANGE - Auto-generated neutral:', newNeutralColor);
     }
     
     this.setState({ 
@@ -552,11 +547,13 @@ export default class ThemeEditor extends React.Component<IThemeEditorProps, IThe
         
         // Generate all theme color variations
         const themeColors = this.generateThemeColors(color);
+        console.log('🎨 PRIMARY COLOR CHANGE - Generated theme colors:', themeColors);
         
         // Generate neutral color variations using harmony if auto-recommend is enabled
         let neutralColors = {};
         if (this.state.autoRecommendNeutral) {
           neutralColors = this.generateNeutralColorsFromHarmony(color, this.state.selectedHarmony);
+          console.log('🎨 PRIMARY COLOR CHANGE - Generated neutral colors:', neutralColors);
         }
         
         // Update all colors
@@ -567,14 +564,26 @@ export default class ThemeEditor extends React.Component<IThemeEditorProps, IThe
           }
         }
         
+        // 🎨 UPDATE SECONDARY COLORS with new primary color  
+        const neutralColorsWithType = neutralColors as { neutralPrimary?: string };
+        const neutralColorForSecondary = this.state.autoRecommendNeutral && neutralColorsWithType.neutralPrimary 
+          ? neutralColorsWithType.neutralPrimary 
+          : this.state.neutralColor;
+        parsedJson.secondaryColors = this.generateSecondaryColors(color, neutralColorForSecondary);
+        console.log('🎨 PRIMARY COLOR CHANGE - Updated secondaryColors:', parsedJson.secondaryColors);
+        
         const updatedJson = JSON.stringify(parsedJson, null, 2);
         
+        console.log('🎨 PRIMARY COLOR CHANGE - Final JSON palette:', parsedJson.palette);
+        
         // Update editor content without triggering onChange
+        this.isUpdatingFromColorPicker = true;
         const currentPosition = this.monacoEditor.getPosition();
         this.monacoEditor.setValue(updatedJson);
         if (currentPosition) {
           this.monacoEditor.setPosition(currentPosition);
         }
+        this.isUpdatingFromColorPicker = false;
         
         // Update state
         this.setState({ themeJson: updatedJson });
@@ -587,6 +596,8 @@ export default class ThemeEditor extends React.Component<IThemeEditorProps, IThe
 
   private handleNeutralColorChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const color = event.target.value;
+    console.log('🖌️ NEUTRAL COLOR CHANGE - Input:', color);
+    
     this.setState({ neutralColor: color });
     
     // Update all neutral colors in the Monaco editor JSON
@@ -595,29 +606,33 @@ export default class ThemeEditor extends React.Component<IThemeEditorProps, IThe
         const currentJson = this.monacoEditor.getValue();
         const parsedJson = JSON.parse(currentJson);
         
-        // Generate neutral color variations - use harmony if auto-recommend is on
-        let neutralColors;
-        if (this.state.autoRecommendNeutral) {
-          // Use harmony-based generation with the manually set neutral as base
-          neutralColors = this.generateNeutralColorsFromHarmony(this.state.primaryColor, this.state.selectedHarmony);
-        } else {
-          // Use traditional single-color neutral generation
-          neutralColors = this.generateNeutralColors(color);
-        }
+        // Generate neutral color variations - ALWAYS use the manually selected color
+        // The autoRecommendNeutral flag should only apply to automatic generation, 
+        // not override manual user selection
+        const neutralColors = this.generateNeutralColors(color);
+        console.log('🖌️ NEUTRAL COLOR CHANGE - Manual-generated neutrals:', neutralColors);
         
         // Update all neutral colors
         if (parsedJson.palette) {
           Object.assign(parsedJson.palette, neutralColors);
         }
         
+        // 🎨 UPDATE SECONDARY COLORS with new neutral color
+        parsedJson.secondaryColors = this.generateSecondaryColors(this.state.primaryColor, color);
+        console.log('🖌️ NEUTRAL COLOR CHANGE - Updated secondaryColors:', parsedJson.secondaryColors);
+        
         const updatedJson = JSON.stringify(parsedJson, null, 2);
         
+        console.log('🖌️ NEUTRAL COLOR CHANGE - Final JSON palette:', parsedJson.palette);
+        
         // Update editor content without triggering onChange
+        this.isUpdatingFromColorPicker = true;
         const currentPosition = this.monacoEditor.getPosition();
         this.monacoEditor.setValue(updatedJson);
         if (currentPosition) {
           this.monacoEditor.setPosition(currentPosition);
         }
+        this.isUpdatingFromColorPicker = false;
         
         // Update state
         this.setState({ themeJson: updatedJson });
@@ -811,8 +826,25 @@ export default class ThemeEditor extends React.Component<IThemeEditorProps, IThe
         throw new Error('Invalid JSON format in theme definition');
       }
 
+      // Debug logging - check colors before save
+      console.log('🔍 SAVE DEBUG - UI State Colors:', {
+        primaryColorFromState: this.state.primaryColor,
+        neutralColorFromState: this.state.neutralColor
+      });
+      
+      console.log('🔍 SAVE DEBUG - JSON Palette Colors:', {
+        themePrimaryFromJson: parsedJson.palette?.themePrimary,
+        neutralPrimaryFromJson: parsedJson.palette?.neutralPrimary
+      });
+
       // Update the name in the JSON
       parsedJson.name = this.state.themeName;
+      
+      // 🎨 UPDATE SECONDARY COLORS with current theme colors
+      console.log('🔥 Updating secondaryColors with current theme colors...');
+      parsedJson.secondaryColors = this.generateSecondaryColors(this.state.primaryColor, this.state.neutralColor);
+      
+      console.log('🔥 Generated secondaryColors:', parsedJson.secondaryColors);
 
       if (isUpdate) {
         // Update existing theme
@@ -827,11 +859,20 @@ export default class ThemeEditor extends React.Component<IThemeEditorProps, IThe
 
         await this.brandCenterService.updateTenantTheme(themeData);
         
+        // 🔥 APPLY THE THEME to update ThemeProvider and CSS variables
+        console.log('🎨 Applying updated theme to refresh CSS variables...');
+        await this.brandCenterService.previewTheme(JSON.stringify(parsedJson));
+        
+        // 🎯 ALSO apply theme directly to web part to override ThemeProvider
+        if (this.props.webPartInstance) {
+          this.props.webPartInstance.applyCustomTheme(parsedJson);
+        }
+        
         this.setState({
           isUpdating: false,
           isPreviewing: false,
           isApplying: false,
-          success: `Theme "${this.state.themeName}" updated successfully!`
+          success: `Theme "${this.state.themeName}" updated and applied successfully!`
         });
 
       } else {
@@ -844,12 +885,21 @@ export default class ThemeEditor extends React.Component<IThemeEditorProps, IThe
 
         const createdTheme = await this.brandCenterService.addTenantTheme(themeDataInput);
         
+        // 🔥 APPLY THE NEW THEME to update ThemeProvider and CSS variables
+        console.log('🎨 Applying new theme to refresh CSS variables...');
+        await this.brandCenterService.previewTheme(JSON.stringify(parsedJson));
+        
+        // 🎯 ALSO apply theme directly to web part to override ThemeProvider
+        if (this.props.webPartInstance) {
+          this.props.webPartInstance.applyCustomTheme(parsedJson);
+        }
+        
         // After successful creation, switch to edit mode for the newly created theme
         this.setState({
           isSaving: false,
           isPreviewing: false,
           isApplying: false,
-          success: `Theme "${this.state.themeName}" created successfully! You can now preview and apply it.`,
+          success: `Theme "${this.state.themeName}" created and applied successfully!`,
           isEditMode: true,
           editingThemeId: createdTheme?.id
         });
