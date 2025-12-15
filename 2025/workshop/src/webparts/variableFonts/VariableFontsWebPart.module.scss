@@ -23,11 +23,6 @@
   font-optical-sizing: auto;
   /* Let browser handle automatically, or use manual if supported */
 
-  /* Italic support - will be toggled via JavaScript */
-  &.italic {
-    font-style: italic;
-  }
-
   /* Manual optical sizing via variation settings if font supports it (5-36pt range) */
   font-variation-settings: "wght" var(--font-weight, 300),
   "opsz" var(--optical-size, 12);
@@ -56,6 +51,11 @@
 
   font-size: clamp(2rem, 5vw, 4rem);
   line-height: 1.2;
+
+  /* Italic support - will be toggled via JavaScript */
+  &.italic {
+    font-style: italic;
+  }
 
   /* Fallback for optical sizing if variation settings don't work */
   @supports not (font-variation-settings: "opsz" 12) {

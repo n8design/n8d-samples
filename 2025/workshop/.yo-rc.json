@@ -4,7 +4,7 @@
     "isCreatingSolution": false,
     "nodeVersion": "22.14.0",
     "sdksVersions": {},
-    "version": "1.21.1",
+    "version": "1.22.0",
     "libraryName": "css-basics",
     "libraryId": "3fea8117-0e8f-4f8b-9e66-c2f3931018a0",
     "environment": "spo",
@@ -13,6 +13,7 @@
     "solutionShortDescription": "CSS-Basics description",
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
-    "componentType": "webpart"
+    "componentType": "webpart",
+    "useGulp": false
   }
 }

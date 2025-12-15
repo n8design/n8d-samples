@@ -1,4 +1,5 @@
 const domParser = new DOMParser();
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const assets = require('../assets/deer.svg');
 
 export class SvgMagic {

@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.SvgMagic = void 0;
 var tslib_1 = require("tslib");
 var domParser = new DOMParser();
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 var assets = require('../assets/deer.svg');
 var SvgMagic = /** @class */ (function () {
     function SvgMagic() {
