@@ -1,23 +1,40 @@
-# SPFx Upgrade Log
+# SPFx Solution Upgrade Log
 
-## brandcenter
-- Ran `m365 spfx project upgrade` and generated upgrade-brandcenter.md with all required steps for SPFx 1.21.1 → 1.22.0 migration.
-- **Risk:** Gulp toolchain must be migrated to Heft. See risk assessment.
-- **Next steps:**
-  1. Uninstall Gulp toolchain dependencies:
-     - `npm uninstall @microsoft/sp-build-web ajv gulp`
-     - `npm uninstall @microsoft/rush-stack-compiler-5.3`
-  2. Install Heft toolchain dependencies:
-     - `npm install @microsoft/spfx-web-build-rig@1.22.0 @microsoft/spfx-heft-plugins@1.22.0 @microsoft/eslint-config-spfx@1.22.0 @microsoft/eslint-plugin-spfx@1.22.0 @microsoft/sp-module-interfaces@1.22.0 @rushstack/eslint-config@4.5.2 @rushstack/heft@1.1.2 @types/heft-jest@1.0.2 @typescript-eslint/parser@8.46.2 --save-dev --save-exact --force`
-  3. Optionally upgrade TypeScript:
-     - `npm install typescript@~5.8.0 --save-dev`
-  4. Update npm scripts in package.json to use Heft (replace build, clean, test scripts).
-  5. Add `config/rig.json` and update `config/sass.json` and `config/typescript.json` as per [official guide](https://learn.microsoft.com/en-us/sharepoint/dev/spfx/toolchain/migrate-gulptoolchain-hefttoolchain).
-  6. Replace `tsconfig.json` with Heft config.
-  7. Delete `gulpfile.js`.
-  8. Upgrade production dependencies to SPFx 1.22.0.
-  9. Clean node_modules and lock file, then run `npm install`.
-  10. Test migration with `npm run build`.
+**Upgrade Date:** December 15, 2025  
+**Scope:** Multi-project SPFx solution upgrade  
+**Target Version:** SPFx 1.22.0-rc.0 with Heft toolchain
+
+## Pre-Upgrade Analysis Summary
+
+### CLI Microsoft 365 Upgrade Analysis Results
+
+#### ✅ brandcenter/ Project Analysis
+**Current:** SPFx 1.21.1 (Gulp toolchain) → **Target:** SPFx 1.22.0-rc.0 (Heft toolchain)
+
+**Critical Changes Required:**
+1. **Dependency Updates:**
+   ```bash
+   # Remove deprecated packages
+   npm un -D @microsoft/sp-build-web gulp ajv @microsoft/rush-stack-compiler-5.3
+   
+   # Update core dependencies to 1.22.0-rc.0
+   npm i -SE @microsoft/sp-core-library@1.22.0-rc.0 @microsoft/sp-lodash-subset@1.22.0-rc.0 
+   npm i -SE @microsoft/sp-office-ui-fabric-core@1.22.0-rc.0 @microsoft/sp-webpart-base@1.22.0-rc.0 
+   npm i -SE @microsoft/sp-property-pane@1.22.0-rc.0 @microsoft/sp-component-base@1.22.0-rc.0
+   
+   # Install Heft toolchain
+   npm i -DE @microsoft/sp-module-interfaces@1.22.0-rc.0 @rushstack/eslint-config@4.5.2 
+   npm i -DE @microsoft/eslint-plugin-spfx@1.22.0-rc.0 @microsoft/eslint-config-spfx@1.22.0-rc.0 
+   npm i -DE typescript@~5.8.0 @microsoft/spfx-web-build-rig@1.22.0-rc.0 @rushstack/heft@1.1.2
+   ```
+
+2. **Build System Migration (Gulp → Heft):**
+   - Remove `gulpfile.js` and `src/index.ts`
+   - Update `.yo-rc.json`: version to 1.22.0-rc.0, useGulp to false
+   - Create `config/typescript.json` extending Heft configuration
+   - Update `tsconfig.json` to extend `@microsoft/spfx-web-build-rig/profiles/default/tsconfig-base.json`
+   - Update all npm scripts to use Heft commands
+   - Update ESLint rules for @rushstack plugins
 
 ## workshop
 - Ran `m365 spfx project upgrade` and generated upgrade-workshop.md with all required steps for SPFx 1.21.1 → 1.22.0 migration.
