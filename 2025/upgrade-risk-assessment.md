@@ -1,31 +1,63 @@
-# SPFx Upgrade Risk Assessment
+# SPFx Solution Upgrade Risk Assessment
 
-## Projects Identified
-- brandcenter
-- test
-- theme-exporter
-- workshop
+**Date:** December 15, 2025  
+**Assessment Scope:** Complete SPFx solution upgrade for 4 projects  
+**Target:** Latest stable SPFx version with Heft toolchain migration
 
-## Current State
-- brandcenter: SPFx 1.21.1, gulp toolchain
-- test: SPFx 1.22.0-beta.2, heft toolchain
-- theme-exporter: SPFx 1.22.0-beta.5, heft toolchain
-- workshop: SPFx 1.21.1, gulp toolchain
+## Project Portfolio Overview
 
-## Risks
-- **Breaking changes**: Upgrading SPFx or switching toolchains (gulp → heft) may break custom scripts, build tasks, or integrations.
-- **Dependency compatibility**: Some dependencies may not be compatible with the latest SPFx version or the new toolchain.
-- **Beta versions**: Some projects use beta SPFx versions, which may introduce instability or require additional fixes.
-- **Custom code**: Custom build steps or scripts may require manual migration.
-- **Rollback complexity**: If not properly planned, rollback may be difficult after migration.
-- **Documentation gaps**: Incomplete documentation may lead to missed steps or errors during upgrade.
+| Project | Current SPFx | Build System | Components | Risk Level |
+|---------|--------------|--------------|------------|------------|
+| **test/** | 1.22.0-beta.2 | Heft | Basic test web parts | 🟢 LOW |
+| **brandcenter/** | 1.21.1 | Gulp | 3 web parts + ThemeService | 🟡 MEDIUM |
+| **workshop/** | 1.21.1 | Gulp | 9 web parts + Splide.js | 🔴 HIGH |
+| **theme-exporter/** | 1.22.0-beta.5 | Heft | Monaco Editor + PnP | 🔴 HIGH |
 
-## Mitigation
-- Use git branches/tags to enable rollback.
-- Backup all config and lock files before upgrade.
-- Test each project after upgrade in isolation.
-- Document every change in upgrade-log.md.
-- Follow official upgrade and migration guides closely.
+## Detailed Risk Analysis
+
+### 🟢 LOW RISK: test/ Project
+- ✅ Already using Heft toolchain
+- ✅ Minimal custom dependencies  
+- ✅ Simple component architecture
+- ⚠️ Beta version stability concerns
+
+### 🟡 MEDIUM RISK: brandcenter/ Project  
+- 🔴 Gulp → Heft migration required
+- 🟡 Custom ThemeService with global state
+- 🟡 Complex color management system
+- ✅ Standard SPFx dependencies
+
+### 🔴 HIGH RISK: workshop/ Project
+- 🔴 Gulp → Heft migration required
+- 🔴 External library (@splidejs/splide 4.1.4)
+- 🔴 Complex CSS integration  
+- 🔴 9 web parts with varying complexity
+
+### 🔴 HIGH RISK: theme-exporter/ Project
+- 🔴 Monaco Editor integration (@monaco-editor/react 4.7.0)
+- 🔴 PnP SharePoint integration (@pnp/sp 4.17.0)
+- 🔴 Custom UI library (@n8d/htwoo-react 2.8.1)
+- 🔴 Advanced theme management functionality
+
+## Critical Dependencies & Compatibility Risks
+
+**External Library Dependencies:**
+- **Monaco Editor** - Rich text editor, potential breaking changes
+- **PnP Libraries** - SharePoint API integration layer  
+- **Splide.js** - External slider with CSS integration
+- **hTWOo React** - Custom UI component library
+
+## Rollback Strategy & Mitigation
+
+### Git-Based Infrastructure
+- Create backup branches for each project
+- Snapshot package-lock.json and configurations
+- Document rollback procedures for each phase
+
+### Testing Strategy
+- **Pre-upgrade:** Functional, build, dependency testing
+- **Post-upgrade:** Regression, integration, performance validation
+- **Rollback validation:** 30-minute complete restoration capability
 
 ---
 
