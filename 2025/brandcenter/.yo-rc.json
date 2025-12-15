@@ -4,7 +4,7 @@
     "isCreatingSolution": false,
     "nodeVersion": "22.14.0",
     "sdksVersions": {},
-    "version": "1.21.1",
+    "version": "1.22.0-rc.0",
     "libraryName": "brandcenter",
     "libraryId": "28ec91c3-6745-4af6-b8ec-44bae7ef1aa1",
     "environment": "spo",
@@ -13,6 +13,7 @@
     "solutionShortDescription": "brandcenter description",
     "skipFeatureDeployment": true,
     "isDomainIsolated": false,
-    "componentType": "webpart"
+    "componentType": "webpart",
+    "useGulp": false
   }
 }
