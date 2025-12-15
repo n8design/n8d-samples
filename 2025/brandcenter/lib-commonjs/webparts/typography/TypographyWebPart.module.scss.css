@@ -1,0 +1,203 @@
+@font-face {
+  font-family: "Gotham";
+  src: url(https://public-cdn.sharepointonline.com/n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-Black.otf) format("opentype"), url(https://n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-Black.otf) format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url(https://public-cdn.sharepointonline.com/n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-BlackItalic.otf) format("opentype"), url(https://n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-BlackItalic.otf) format("opentype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url(https://public-cdn.sharepointonline.com/n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-Bold.otf) format("opentype"), url(https://n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-Bold.otf) format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url(https://public-cdn.sharepointonline.com/n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-BoldItalic.otf) format("opentype"), url(https://n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-BoldItalic.otf) format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url(https://public-cdn.sharepointonline.com/n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-Book.otf) format("opentype"), url(https://n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-Book.otf) format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url(https://public-cdn.sharepointonline.com/n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-BookItalic.otf) format("opentype"), url(https://n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-BookItalic.otf) format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url(https://public-cdn.sharepointonline.com/n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-Light.otf) format("opentype"), url(https://n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-Light.otf) format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url(https://public-cdn.sharepointonline.com/n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-LightItalic.otf) format("opentype"), url(https://n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-LightItalic.otf) format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url(https://public-cdn.sharepointonline.com/n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-Medium.otf) format("opentype"), url(https://n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-Medium.otf) format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url(https://public-cdn.sharepointonline.com/n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-MediumItalic.otf) format("opentype"), url(https://n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-MediumItalic.otf) format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url(https://public-cdn.sharepointonline.com/n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-Thin.otf) format("opentype"), url(https://n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-Thin.otf) format("opentype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url(https://public-cdn.sharepointonline.com/n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-ThinItalic.otf) format("opentype"), url(https://n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-ThinItalic.otf) format("opentype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url(https://public-cdn.sharepointonline.com/n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-Ultra.otf) format("opentype"), url(https://n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-Ultra.otf) format("opentype");
+  font-weight: 950;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url(https://public-cdn.sharepointonline.com/n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-UltraItalic.otf) format("opentype"), url(https://n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-UltraItalic.otf) format("opentype");
+  font-weight: 950;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url(https://public-cdn.sharepointonline.com/n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-XLight.otf) format("opentype"), url(https://n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-XLight.otf) format("opentype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url(https://public-cdn.sharepointonline.com/n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-XLightItalic.otf) format("opentype"), url(https://n8dlab001.sharepoint.com/sites/BrandGuide/Fonts/Gotham-XLightItalic.otf) format("opentype");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+.typography {
+  /* Caption 2 - Caption small */
+  --customFont100: var(--fontWeightCustomFont100, var(--fontWeightRegular)) var(--fontSizeBase100)/var(--lineHeightBase100) var(--fontFamilyCustomFont100), var(--fontFamilyBase);
+  /* Caption 2 Strong - Caption medium */
+  --customFont200: var(--fontWeightCustomFont200, var(--fontWeightSemibold)) var(--fontSizeBase100)/var(--lineHeightBase100) var(--fontFamilyCustomFont200), var(--fontFamilyBase);
+  /* Caption 1 - Caption large */
+  --customFont300: var(--fontWeightCustomFont300, var(--fontWeightRegular)) var(--fontSizeBase200)/var(--lineHeightBase200) var(--fontFamilyCustomFont300), var(--fontFamilyBase);
+  /* Caption 1 Strong - Label small */
+  --customFont400: var(--fontWeightCustomFont400, var(--fontWeightSemibold)) var(--fontSizeBase200)/var(--lineHeightBase200) var(--fontFamilyCustomFont400), var(--fontFamilyBase);
+  /* Caption 1 Stronger - Label medium */
+  --customFont500: var(--fontWeightCustomFont500, var(--fontWeightBold)) var(--fontSizeBase200)/var(--lineHeightBase200) var(--fontFamilyCustomFont500), var(--fontFamilyBase);
+  /* Body 1 - Label large */
+  --customFont600: var(--fontWeightCustomFont600, var(--fontWeightRegular)) var(--fontSizeBase300)/var(--lineHeightBase300) var(--fontFamilyCustomFont600), var(--fontFamilyBase);
+  /* Body 1 Strong - Paragraph small */
+  --customFont700: var(--fontWeightCustomFont700, var(--fontWeightSemibold)) var(--fontSizeBase300)/var(--lineHeightBase300) var(--fontFamilyCustomFont700), var(--fontFamilyBase);
+  /* Body 1 Stronger - Paragraph medium */
+  --customFont800: var(--fontWeightCustomFont800, var(--fontWeightBold)) var(--fontSizeBase300)/var(--lineHeightBase300) var(--fontFamilyCustomFont800), var(--fontFamilyBase);
+  /* Body 2 - Paragraph large */
+  --customFont900: var(--fontWeightCustomFont900, var(--fontWeightRegular)) var(--fontSizeBase400)/var(--lineHeightBase400) var(--fontFamilyCustomFont900), var(--fontFamilyBase);
+  /* Subtitle 2 - Heading extra small */
+  --customFont1000: var(--fontWeightCustomFont1000, var(--fontWeightSemibold)) var(--fontSizeBase400)/var(--lineHeightBase400) var(--fontFamilyCustomFont1000), var(--fontFamilyBase);
+  /* Subtitle 2 Stronger - Heading small */
+  --customFont1100: var(--fontWeightCustomFont1100, var(--fontWeightBold)) var(--fontSizeBase400)/var(--lineHeightBase400) var(--fontFamilyCustomFont1100), var(--fontFamilyBase);
+  /* Subtitle 1 - Heading medium */
+  --customFont1200: var(--fontWeightCustomFont1200, var(--fontWeightSemibold)) var(--fontSizeBase500)/var(--lineHeightBase500) var(--fontFamilyCustomFont1200), var(--fontFamilyBase);
+  /* Title 3 - Heading large */
+  --customFont1300: var(--fontWeightCustomFont1300, var(--fontWeightSemibold)) var(--fontSizeBase600)/var(--lineHeightBase600) var(--fontFamilyCustomFont1300), var(--fontFamilyBase);
+  /* Title 2 - Heading extra large */
+  --customFont1400: var(--fontWeightCustomFont1400, var(--fontWeightSemibold)) var(--fontSizeHero700)/var(--lineHeightHero700) var(--fontFamilyCustomFont1400), var(--fontFamilyBase);
+  /* Title 1 - Title small */
+  --customFont1500: var(--fontWeightCustomFont1500, var(--fontWeightSemibold)) var(--fontSizeHero800)/var(--lineHeightHero800) var(--fontFamilyCustomFont1500), var(--fontFamilyBase);
+  /* Large Title - Title medium */
+  --customFont1600: var(--fontWeightCustomFont1600, var(--fontWeightSemibold)) var(--fontSizeHero900)/var(--lineHeightHero900) var(--fontFamilyCustomFont1600), var(--fontFamilyBase);
+  /* Display - Title large */
+  --customFont1700: var(--fontWeightCustomFont1700, var(--fontWeightSemibold)) var(--fontSizeHero1000)/var(--lineHeightHero1000) var(--fontFamilyCustomFont1700), var(--fontFamilyBase);
+}
+
+.typography {
+  content: "";
+}
+.typography :global .slot-100 {
+  font: var(--customFont100);
+}
+.typography :global .slot-200 {
+  font: var(--customFont200);
+}
+.typography :global .slot-300 {
+  font: var(--customFont300);
+}
+.typography :global .slot-400 {
+  font: var(--customFont400);
+}
+.typography :global .slot-500 {
+  font: var(--customFont500);
+}
+.typography :global .slot-600 {
+  font: var(--customFont600);
+}
+.typography :global .slot-700 {
+  font: var(--customFont700);
+}
+.typography :global .slot-800 {
+  font: var(--customFont800);
+}
+.typography :global .slot-900 {
+  font: var(--customFont900);
+}
+.typography :global .slot-1000 {
+  font: var(--customFont1000);
+}
+.typography :global .slot-1100 {
+  font: var(--customFont1100);
+}
+.typography :global .slot-1200 {
+  font: var(--customFont1200);
+}
+.typography :global .slot-1300 {
+  font: var(--customFont1300);
+}
+.typography :global .slot-1400 {
+  font: var(--customFont1400);
+}
+.typography :global .slot-1500 {
+  font: var(--customFont1500);
+}
+.typography :global .slot-1600 {
+  font: var(--customFont1600);
+}
+.typography :global .slot-1700 {
+  font: var(--customFont1700);
+}

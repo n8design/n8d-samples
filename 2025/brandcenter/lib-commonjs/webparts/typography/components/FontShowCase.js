@@ -1,0 +1,86 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.FontShowCase = void 0;
+// List of all Crimson Text font variants (outside the class)
+var crimsonTextVariants = [
+    { label: 'Regular', weight: 400, style: 'normal' },
+    { label: 'Italic', weight: 400, style: 'italic' },
+    { label: 'SemiBold', weight: 600, style: 'normal' },
+    { label: 'SemiBold Italic', weight: 600, style: 'italic' },
+    { label: 'Bold', weight: 700, style: 'normal' },
+    { label: 'Bold Italic', weight: 700, style: 'italic' },
+];
+// List of all Gotham font variants (outside the class)
+var gothamVariants = [
+    { label: 'Thin', weight: 100, style: 'normal' },
+    { label: 'Thin Italic', weight: 100, style: 'italic' },
+    { label: 'XLight', weight: 200, style: 'normal' },
+    { label: 'XLight Italic', weight: 200, style: 'italic' },
+    { label: 'Light', weight: 300, style: 'normal' },
+    { label: 'Light Italic', weight: 300, style: 'italic' },
+    { label: 'Book', weight: 400, style: 'normal' },
+    { label: 'Book Italic', weight: 400, style: 'italic' },
+    { label: 'Medium', weight: 500, style: 'normal' },
+    { label: 'Medium Italic', weight: 500, style: 'italic' },
+    { label: 'Bold', weight: 700, style: 'normal' },
+    { label: 'Bold Italic', weight: 700, style: 'italic' },
+    { label: 'Black', weight: 900, style: 'normal' },
+    { label: 'Black Italic', weight: 900, style: 'italic' },
+    { label: 'Ultra', weight: 950, style: 'normal' },
+    { label: 'Ultra Italic', weight: 950, style: 'italic' },
+];
+var FontShowCase = /** @class */ (function () {
+    function FontShowCase() {
+    }
+    FontShowCase.showDefaultFontSlots = function (domElement) {
+        for (var index = 0; index <= 16; index++) {
+            var parsed = this._domParser.parseFromString("\n                <div class=\"font-slots slot-".concat(index * 100, "\">\n                        Font Slot ").concat(index, "\n                </div>\n            "), "text/html").body.firstElementChild;
+            var fontSlot = void 0;
+            if (parsed && parsed instanceof HTMLDivElement) {
+                fontSlot = parsed;
+            }
+            else {
+                fontSlot = document.createElement("div");
+                fontSlot.className = "font-slots slot-".concat(index);
+                fontSlot.textContent = "Font Slot ".concat(index);
+            }
+            this._fontSlots.push(fontSlot);
+        }
+        domElement.insertAdjacentHTML("beforeend", this._fontSlots.map(function (slot) { return slot.outerHTML; }).join(''));
+    };
+    /**
+     * Appends a showcase of all Gotham font variants to the given container.
+     */
+    FontShowCase.showcaseAllGothamFonts = function (container) {
+        gothamVariants.forEach(function (variant) {
+            var div = document.createElement('div');
+            div.textContent = "Gotham ".concat(variant.label);
+            div.style.fontFamily = 'Gotham, Arial, sans-serif';
+            div.style.fontWeight = variant.weight.toString();
+            div.style.fontStyle = variant.style;
+            div.style.margin = '0.5em 0';
+            div.style.fontSize = '1.5em';
+            container.appendChild(div);
+        });
+    };
+    /**
+ * Appends a showcase of all Crimson Text font variants to the given container.
+ */
+    FontShowCase.showcaseAllCrimsonTextFonts = function (container) {
+        crimsonTextVariants.forEach(function (variant) {
+            var div = document.createElement('div');
+            div.textContent = "Crimson Text ".concat(variant.label);
+            div.style.fontFamily = 'Crimson Text, serif';
+            div.style.fontWeight = variant.weight.toString();
+            div.style.fontStyle = variant.style;
+            div.style.margin = '0.5em 0';
+            div.style.fontSize = '1.5em';
+            container.appendChild(div);
+        });
+    };
+    FontShowCase._fontSlots = [];
+    FontShowCase._domParser = new DOMParser();
+    return FontShowCase;
+}());
+exports.FontShowCase = FontShowCase;
+//# sourceMappingURL=FontShowCase.js.map
