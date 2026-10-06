@@ -1,0 +1,81 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "team-card-before-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/teamCardBefore/TeamCardBeforeWebPart.js",
+          "manifest": "./src/webparts/teamCardBefore/TeamCardBeforeWebPart.manifest.json"
+        }
+      ]
+    },
+    "team-card-after-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/teamCardAfter/TeamCardAfterWebPart.js",
+          "manifest": "./src/webparts/teamCardAfter/TeamCardAfterWebPart.manifest.json"
+        }
+      ]
+    },
+    "scss-pipeline-probe-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/scssPipelineProbe/ScssPipelineProbeWebPart.js",
+          "manifest": "./src/webparts/scssPipelineProbe/ScssPipelineProbeWebPart.manifest.json"
+        }
+      ]
+    },
+    "token-collision-a-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/tokenCollisionA/TokenCollisionAWebPart.js",
+          "manifest": "./src/webparts/tokenCollisionA/TokenCollisionAWebPart.manifest.json"
+        }
+      ]
+    },
+    "token-collision-b-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/tokenCollisionB/TokenCollisionBWebPart.js",
+          "manifest": "./src/webparts/tokenCollisionB/TokenCollisionBWebPart.manifest.json"
+        }
+      ]
+    },
+    "property-animation-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/propertyAnimation/PropertyAnimationWebPart.js",
+          "manifest": "./src/webparts/propertyAnimation/PropertyAnimationWebPart.manifest.json"
+        }
+      ]
+    },
+    "theme-background-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/themeBackground/ThemeBackgroundWebPart.js",
+          "manifest": "./src/webparts/themeBackground/ThemeBackgroundWebPart.manifest.json"
+        }
+      ]
+    },
+    "brand-fonts-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/brandFonts/BrandFontsWebPart.js",
+          "manifest": "./src/webparts/brandFonts/BrandFontsWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "TeamCardBeforeWebPartStrings": "lib/webparts/teamCardBefore/loc/{locale}.js",
+    "TeamCardAfterWebPartStrings": "lib/webparts/teamCardAfter/loc/{locale}.js",
+    "ScssPipelineProbeWebPartStrings": "lib/webparts/scssPipelineProbe/loc/{locale}.js",
+    "TokenCollisionAWebPartStrings": "lib/webparts/tokenCollisionA/loc/{locale}.js",
+    "TokenCollisionBWebPartStrings": "lib/webparts/tokenCollisionB/loc/{locale}.js",
+    "PropertyAnimationWebPartStrings": "lib/webparts/propertyAnimation/loc/{locale}.js",
+    "ThemeBackgroundWebPartStrings": "lib/webparts/themeBackground/loc/{locale}.js",
+    "BrandFontsWebPartStrings": "lib/webparts/brandFonts/loc/{locale}.js"
+  }
+}

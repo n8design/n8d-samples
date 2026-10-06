@@ -1,0 +1,112 @@
+// AFTER - @use, no viewport width queries, no canvas sniffing, no hardcoded fonts.
+@use '../../common/styles/tokens';
+
+// The web part root (this.domElement) is the query container.
+// Containment applies to the container itself, so the root must not need to
+// size from its content: it is a block in a canvas column, so inline-size is safe.
+// Never put container-type on the element whose width you want to query from inside.
+.teamCardAfter {
+    @include tokens.themeTokens;
+
+    container-type: inline-size;
+    container-name: n8d-team-card;
+
+    font-family: var(--n8d-font);
+    color: var(--n8d-card-text);
+}
+
+// Intrinsic layout: track count comes from available space, not breakpoints.
+// min(100%, 14rem) stops overflow in a narrow vertical section.
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+    gap: clamp(0.75rem, 3cqi, 2rem);
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: clamp(0.25rem, 1cqi, 0.75rem);
+    border: 1px solid var(--n8d-card-border);
+    border-radius: var(--n8d-card-radius);
+    background-color: var(--n8d-card-surface);
+    // --n8d-card-accent is a registered <color>, so this transition interpolates
+    // instead of snapping.
+    transition: border-color 0.3s ease, --n8d-card-accent 0.3s ease;
+    border-top: 0.25rem solid var(--n8d-card-accent);
+}
+
+.media {
+    margin: 0;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: calc(var(--n8d-card-radius) / 2);
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.header {
+    margin: 0.5em 0 0;
+    // Type scales with the container, bounded so it never gets silly.
+    font-size: clamp(1rem, 0.85rem + 1.5cqi, 1.5rem);
+    font-weight: 600;
+    color: var(--n8d-card-accent);
+}
+
+.role {
+    margin: 0;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--n8d-card-subtle);
+}
+
+.description {
+    margin-top: 0.75em;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+// Wide container (e.g. full-width section) - detected by size, not by DOM sniffing.
+@container n8d-team-card (inline-size >= 60rem) {
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr));
+    }
+
+    .card {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .media {
+        flex: 0 0 40%;
+    }
+}
+
+// Media queries that legitimately stay media queries: capabilities and preferences.
+@media (hover: hover) {
+    .card:hover {
+        --n8d-card-accent: var(--themeDarker, #004578);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .card {
+        transition: none;
+    }
+}
+
+@media (forced-colors: active) {
+    .card {
+        border: 1px solid CanvasText;
+    }
+
+    .header {
+        color: LinkText;
+    }
+}

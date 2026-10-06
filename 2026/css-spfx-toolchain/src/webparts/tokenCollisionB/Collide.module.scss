@@ -1,0 +1,15 @@
+// Web part B: plain, unregistered custom property - perfectly reasonable on its own.
+:root {
+    --card-accent: #0f6cbd;
+}
+
+// Same container name as A. Harmless: @container only matches ancestors,
+// and web parts don't nest. Shown to prove container names are NOT the problem.
+.root {
+    container-type: inline-size;
+    container-name: card;
+}
+
+.swatch {
+    background-color: var(--card-accent, #0f6cbd);
+}

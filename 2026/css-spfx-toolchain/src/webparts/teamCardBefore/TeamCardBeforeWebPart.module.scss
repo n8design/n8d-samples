@@ -1,0 +1,71 @@
+// BEFORE - deliberately written the "gulp era" way.
+// @import is deprecated in Dart Sass, but SPFx 1.23.2's rig sass.json lists
+// "import" in silenceDeprecations, so a default project prints no warning.
+@import '../../common/styles/legacy-grid';
+
+.teamCardBefore {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 24px;
+    font-family: "Segoe UI", "Segoe UI Web (West European)", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+    color: "[theme:bodyText, default: #323130]";
+
+    // Viewport, not column: a one-third column on a wide screen still gets the
+    // desktop track count, unless the canvas sniffing below happens to match.
+    @media screen and (max-width: 1024px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media screen and (max-width: 640px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.card {
+    grid-column: auto / span 2;
+    padding: 4px;
+    // GOTCHA (kept on purpose): sp-css-loader's cssnano drops a quoted theme token
+    // inside a shorthand. This ships as `border:1px solid` - the colour is gone,
+    // no warning. Longhands (border-color: "[theme:...]") survive.
+    border: 1px solid "[theme:neutralLight, default: #edebe9]";
+    background-color: "[theme:white, default: #ffffff]";
+    transition: border-color 0.3s ease;
+
+    &:hover {
+        border-color: "[theme:themePrimary, default: #0078d4]";
+    }
+}
+
+.media {
+    margin: 0;
+    aspect-ratio: 16 / 9;
+
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+}
+
+.header {
+    margin: 8px 0 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: "[theme:themePrimary, default: #0078d4]";
+}
+
+.role {
+    margin: 0;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: "[theme:neutralSecondary, default: #605e5c]";
+}
+
+.description {
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+// Canvas DOM sniffing (see _legacy-grid.scss)
+@include setupGrid('.teamCardBefore');

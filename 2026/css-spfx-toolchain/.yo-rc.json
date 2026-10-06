@@ -1,0 +1,22 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "whichFolder": "subdir",
+    "solutionName": "css-spfx-toolchain",
+    "environment": "spo",
+    "useGulp": false,
+    "componentType": "webpart",
+    "template": "none",
+    "componentName": "BrandFonts",
+    "plusBeta": false,
+    "isCreatingSolution": false,
+    "nodeVersion": "22.22.0",
+    "sdksVersions": {},
+    "version": "1.23.2",
+    "libraryName": "css-spfx-toolchain",
+    "libraryId": "3054c35e-b4cb-4c6e-8355-9cd2f711ecfa",
+    "packageManager": "npm",
+    "solutionShortDescription": "css-spfx-toolchain description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false
+  }
+}

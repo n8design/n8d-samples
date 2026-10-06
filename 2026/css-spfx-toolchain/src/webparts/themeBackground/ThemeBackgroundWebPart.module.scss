@@ -1,0 +1,44 @@
+.themeBackground {
+    padding: 1rem;
+    border-radius: 4px;
+    font-family: var(--fontFamilyBase);
+    color: var(--bodyText);
+    // Gradient from the mapped palette - n8d-samples/2025/brandcenter BrandCenterShowcase.
+    background: linear-gradient(to right, var(--themeLighterAlt), var(--themeLighter));
+
+    h3 {
+        margin-top: 0;
+        color: var(--themePrimary);
+    }
+}
+
+.slots {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    gap: 0.375rem 1rem;
+    padding: 0;
+    list-style: none;
+    font-size: 0.8125rem;
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+}
+
+.chip {
+    flex: none;
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+    border: 1px solid var(--bodyDivider);
+    border-radius: 50%;
+}
+
+.translucent {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 4px;
+    // Sass doesn't know relative colour syntax, so pass it through as a string.
+    background-color: #{"rgb(from var(--bodyBackground) r g b / 60%)"};
+}

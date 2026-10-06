@@ -1,0 +1,9 @@
+.root {
+    --n8d-b-accent: #0f6cbd;
+    container-type: inline-size;
+    container-name: n8d-b-card;
+}
+
+.swatch {
+    background-color: var(--n8d-b-accent, #0f6cbd);
+}

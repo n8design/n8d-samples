@@ -1,0 +1,31 @@
+// AFTER: prefixed, typed design tokens.
+// @property registrations are document-global (CSS modules do not hash them),
+// so every name carries the --n8d- prefix. Never register SharePoint slot names
+// such as --themePrimary: a registered property always has a value, which
+// silently disables every var(--themePrimary, fallback) on the page.
+
+@property --n8d-card-accent {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #0078d4;
+}
+
+@property --n8d-card-radius {
+    syntax: '<length>';
+    inherits: true;
+    initial-value: 4px;
+}
+
+// Map runtime theme slots (set on the web part root by ThemeService) onto the
+// component's own tokens - once. Everything below consumes only --n8d-*.
+@mixin themeTokens {
+    --n8d-card-accent: var(--themePrimary, #0078d4);
+    --n8d-card-surface: var(--bodyBackground, #fff);
+    --n8d-card-text: var(--bodyText, #323130);
+    --n8d-card-subtle: var(--bodySubtext, #605e5c);
+    --n8d-card-border: var(--bodyDivider, #edebe9);
+    // Brand Center / page font if SharePoint exposes it. No fallback on purpose:
+    // if --fontFamilyBase is missing, font-family: var(--n8d-font) is invalid at
+    // computed-value time and font-family (an inherited property) inherits the page font.
+    --n8d-font: var(--fontFamilyBase);
+}

@@ -1,0 +1,59 @@
+// BEFORE: column detection by sniffing SharePoint canvas classes.
+// Ported from n8d-samples/2025/workshop/src/common/css/_base-grid-config.scss.
+// Depends on SharePoint's internal DOM (.CanvasSection-xl*, .CanvasZone--fullWidth)
+// plus viewport media queries that know nothing about the column width.
+
+$gridColumns: 12, 8, 6, 4;
+
+@mixin setupGrid($currentClass) {
+    :global {
+        .CanvasZone--fullWidth {
+            .CanvasSection-xl12 {
+                :local {
+                    #{$currentClass} {
+                        grid-template-columns: repeat(12, 1fr);
+                    }
+                }
+            }
+        }
+
+        .CanvasVerticalSection {
+            .CanvasSection-xl12 {
+                :local {
+                    #{$currentClass} {
+                        grid-template-columns: repeat(4, 1fr);
+                        @media screen and (max-width: 1280px) {
+                            grid-template-columns: repeat(12, 1fr);
+                        }
+                    }
+                }
+            }
+        }
+
+        @each $gridCol in $gridColumns {
+            .CanvasSection-xl#{$gridCol} {
+                :local {
+                    #{$currentClass} {
+                        grid-template-columns: repeat(#{$gridCol}, 1fr);
+
+                        @if ($gridCol == 12 or $gridCol == 8 or $gridCol == 4) {
+                            @media screen and (max-width: 1024px) {
+                                grid-template-columns: repeat(6, 1fr);
+                            }
+                        }
+
+                        @if ($gridCol == 6) {
+                            @media screen and (max-width: 640px) {
+                                grid-template-columns: repeat(6, 1fr);
+                            }
+                        }
+
+                        @media screen and (max-width: 480px) {
+                            grid-template-columns: repeat(2, 1fr);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

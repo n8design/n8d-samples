@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "css-spfx-toolchain-client-side-solution",
+    "id": "3054c35e-b4cb-4c6e-8355-9cd2f711ecfa",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.23.2"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "css-spfx-toolchain description"
+      },
+      "longDescription": {
+        "default": "css-spfx-toolchain description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "css-spfx-toolchain Feature",
+        "description": "The feature that activates elements of the css-spfx-toolchain solution.",
+        "id": "796aee10-b527-4bdd-b868-2c16494b57e8",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/css-spfx-toolchain.sppkg"
+  }
+}

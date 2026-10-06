@@ -1,0 +1,6 @@
+// Plain .scss - no ".module" in the name.
+// SPFx 1.22: typed, but NOT hashed at runtime (global).
+// SPFx 1.23: treated as a CSS module - typed AND hashed.
+.plainClass {
+    outline: 2px dashed currentColor;
+}

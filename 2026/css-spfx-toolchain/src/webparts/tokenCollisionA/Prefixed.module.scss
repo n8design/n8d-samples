@@ -1,0 +1,16 @@
+// Web part A, fixed: prefixed name, set on the web part root, not :root.
+@property --n8d-a-accent {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #c50f1f;
+}
+
+.root {
+    --n8d-a-accent: #c50f1f;
+    container-type: inline-size;
+    container-name: n8d-a-card;
+}
+
+.swatch {
+    background-color: var(--n8d-a-accent);
+}

@@ -1,0 +1,5 @@
+// .global.scss - the only opt-out from CSS modules (nonModuleFileExtensions).
+// No class map is exported; class names land on the page as written.
+.n8d-probe-global {
+    outline: 2px dotted currentColor;
+}

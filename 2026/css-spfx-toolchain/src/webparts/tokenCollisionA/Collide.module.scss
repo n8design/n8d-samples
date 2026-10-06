@@ -1,0 +1,25 @@
+// Web part A, written the "it's scoped, right?" way.
+// CSS modules hash .root and .swatch - nothing else in this file.
+
+// Registered document-wide, by whichever web part loads first.
+// inherits: false means a value set on :root (or any ancestor) no longer
+// reaches descendants; initial-value means var() fallbacks never apply.
+// Same shape as n8d-samples/2025/brandcenter/.../_css-properties.scss.
+@property --card-accent {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: lime;
+}
+
+:root {
+    --card-accent: #c50f1f;
+}
+
+.root {
+    container-type: inline-size;
+    container-name: card;
+}
+
+.swatch {
+    background-color: var(--card-accent, #c50f1f);
+}

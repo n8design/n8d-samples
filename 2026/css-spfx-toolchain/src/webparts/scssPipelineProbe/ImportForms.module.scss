@@ -1,0 +1,12 @@
+// Every package-import form that still compiles under heft-sass-plugin 1.4.1.
+// "~" is rewritten to "pkg:" by the plugin (only at the start of @use/@import/@forward lines).
+@use '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss' as tilde;
+@use 'pkg:@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss' as pkg;
+
+.tildeImport {
+    color: tilde.$ms-color-themePrimary;
+}
+
+.pkgImport {
+    color: pkg.$ms-color-themePrimary;
+}
